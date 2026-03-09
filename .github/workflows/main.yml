@@ -2,9 +2,9 @@ name: Weekly Ecosystem Metrics
 
 on:
   schedule:
-    - cron: "0 0 * * 1"   # كل يوم اثنين
+    - cron: "0 0 * * 1"  
 
-  workflow_dispatch:      # يسمح بتشغيله يدويًا
+  workflow_dispatch:
 
 jobs:
   collect-metrics:
