@@ -1,0 +1,15 @@
+{
+  "date": "2026-03-07T21:15:42.940Z",
+  "metrics": {
+    "npm": {
+      "package": "ajv",
+      "downloads": 252759838,
+      "start": "2026-02-28",
+      "end": "2026-03-06"
+    },
+    "github": {
+      "topic": "json-schema",
+      "repo_count": 2393
+    }
+  }
+}

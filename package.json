@@ -1,0 +1,28 @@
+{
+  "name": "json-schema-observability-q-t",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haya08/JSON-Schema-Observability-Q-T.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/haya08/JSON-Schema-Observability-Q-T/issues"
+  },
+  "homepage": "https://github.com/haya08/JSON-Schema-Observability-Q-T#readme",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
