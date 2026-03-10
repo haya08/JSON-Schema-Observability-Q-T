@@ -10,5 +10,17 @@
       "ajv": 14637,
       "typia": 5585
     }
+  },
+  {
+    "date": "2026-03-10",
+    "npm_downloads": {
+      "ajv": 264141721,
+      "typia": 255259
+    },
+    "githup_repo_count": 2405,
+    "starsCount": {
+      "ajv": 14637,
+      "typia": 5586
+    }
   }
 ]
