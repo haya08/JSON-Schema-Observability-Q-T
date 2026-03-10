@@ -1,15 +1,14 @@
-{
-  "date": "2026-03-07T21:15:42.940Z",
-  "metrics": {
-    "npm": {
-      "package": "ajv",
-      "downloads": 252759838,
-      "start": "2026-02-28",
-      "end": "2026-03-06"
+[
+  {
+    "date": "2026-03-10",
+    "npm_downloads": {
+      "ajv": 264141721,
+      "typia": 255259
     },
-    "github": {
-      "topic": "json-schema",
-      "repo_count": 2393
+    "githup_repo_count": 2403,
+    "starsCount": {
+      "ajv": 14637,
+      "typia": 5585
     }
   }
-}
+]

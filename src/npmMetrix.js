@@ -10,12 +10,7 @@ async function fetchNpmWeeklyDownloads(pkg) {
 
         const data = await res.json();
 
-        return {
-            package: pkg,
-            downloads: data.downloads,
-            start: data.start,
-            end: data.end
-        };
+        return data.downloads;
 
     } catch (error) {
         console.error("Failed to fetch npm downloads:", error);
