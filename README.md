@@ -44,13 +44,39 @@ This metric indicates **how large the ecosystem is and how many projects are bui
 
 ---
 
-### 3. GitHub Stars
+### 3. New GitHub Repository Count
 
-Number of stars for key JSON Schema projects.
+The number of new repositories tagged with the topic:
 
-Example:
+```
+json-schema
+```
 
-* ajv
+Data source: GitHub Search API.
+
+This metric indicates **the ecosystem growth**.
+
+---
+
+### 4. New GitHub Repository Count
+
+The number of active repositories tagged with the topic:
+
+```
+json-schema
+```
+
+Data source: GitHub Search API.
+
+This metric indicates **the actual number of repos that uses JSON Schema topic excluding the abandoned ones**.
+
+---
+
+### 5. GitHub Stars
+
+Total/Average number of stars for JSON Schema repositories.
+
+Data source: GitHub Search API.
 
 Stars are a rough signal of **community interest and project popularity**.
 
@@ -71,15 +97,16 @@ Example:
 ```json
 [
   {
-    "date": "2026-03-10",
+    "date": "2026-03-12",
     "npm_downloads": {
-      "ajv": 264141721,
-      "typia": 255259
+      "ajv": 220631931,
+      "typia": 211371
     },
-    "github_repo_count": 2403,
-    "github_stars": {
-      "ajv": 14637
-    }
+    "repo_count": 2414,
+    "new_repos": null,
+    "total_stars": 325740,
+    "avg_stars": "135",
+    "active_repos": 28
   }
 ]
 ```
@@ -162,6 +189,8 @@ npm install
 
 ```
 node src/index.js
+OR
+npm start
 ```
 
 This will:
