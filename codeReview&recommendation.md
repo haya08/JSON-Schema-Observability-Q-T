@@ -117,6 +117,13 @@ This multi-step process increases complexity and makes the workflow harder to re
 
 ---
 
+# Running the code
+I followed the steps mentioned in 
+```
+https://github.com/json-schema-org/ecosystem/blob/main/projects/initial-data/README.md
+```
+I discovered that i need to create a folder with name **data** that each time i run the code, a .csv file created into it with name has its creation date to make sure we are not overriding on the current data.
+
 # Recommendation
 
 I recommend starting fresh rather than building directly on this prototype.
