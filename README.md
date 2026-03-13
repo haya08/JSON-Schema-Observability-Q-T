@@ -266,7 +266,6 @@ Possible extensions include:
 * tracking more JSON Schema libraries
 * measuring ecosystem growth rate
 * tracking top repositories by stars
-* building a live dashboard
 
 ---
 
