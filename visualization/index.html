@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON Schema Ecosystem Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>JSON Schema Ecosystem Dashboard</h1>
+<p id="lastUpdated"></p>
+
+<div class="kpi-container">
+    <div class="card">
+        <h3>Repo Count</h3>
+        <p id="repoCount">-</p>
+    </div>
+
+    <div class="card">
+        <h3>New Repos</h3>
+        <p id="newReposCount">-</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Stars</h3>
+        <p id="starsCount">-</p>
+    </div>
+
+    <div class="card">
+        <h3>AJV Downloads</h3>
+        <p id="ajvDownloads">-</p>
+    </div>
+</div>
+
+<div class="chartContainer">
+    <div class="chart">
+        <h2>Repository Growth</h2>
+        <canvas id="repoChart"></canvas>
+    </div>
+
+    <div class="chart">
+        <h2>NPM Downloads</h2>
+        <canvas id="npmChart"></canvas>
+    </div>
+
+    <div class="chart">
+        <h2>Stars Growth</h2>
+        <canvas id="starsChart"></canvas>
+    </div>
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>

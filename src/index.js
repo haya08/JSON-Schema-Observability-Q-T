@@ -1,9 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 
-const fetchNpmWeeklyDownloads = require("./npmMetrix");
-const fetchGitHubTopicRepoCount = require("./githubMetrix");
-const fetchGitHubTopicStarsCount = require("./githubStars");
+const fetchNpmWeeklyDownloads = require("./npmDownloads");
+const fetchGitHubTopicRepoCount = require("./repos");
+const fetchGitHubTopicStarsCount = require("./stars");
+const showGrowth = require("./newRepos");
+const fetchGitHubActiveRepoCount = require("./activeRepos");
 const { json } = require("stream/consumers");
 
 const OUTPUT_DIR = path.join(__dirname, "../output");
@@ -12,8 +14,9 @@ async function main() {
     const ajvDownloads = await fetchNpmWeeklyDownloads("ajv");
     const typiaDownloads = await fetchNpmWeeklyDownloads("typia");
     const jsonSchemaTopic = await fetchGitHubTopicRepoCount("json-schema");
-    const ajvGithubStars = await fetchGitHubTopicStarsCount("json-schema", "ajv");
-    const typiaGithubStars = await fetchGitHubTopicStarsCount("json-schema", "typia");
+    const totalStarCount = await fetchGitHubTopicStarsCount("json-schema");
+    const growth = await showGrowth(jsonSchemaTopic);
+    const activeRepos = await fetchGitHubActiveRepoCount("json-schema");
 
     const result = {
         date: new Date().toISOString().split("T")[0],
@@ -21,11 +24,11 @@ async function main() {
             ajv: ajvDownloads,
             typia: typiaDownloads
         },
-        githup_repo_count: jsonSchemaTopic,
-        starsCount: {
-            ajv: ajvGithubStars,
-            typia: typiaGithubStars
-        }
+        repo_count: jsonSchemaTopic,
+        new_repos: growth,
+        total_stars: totalStarCount,
+        avg_stars: (totalStarCount / jsonSchemaTopic).toFixed(0),
+        active_repos: activeRepos
     };
 
     if (!fs.existsSync(OUTPUT_DIR)) {

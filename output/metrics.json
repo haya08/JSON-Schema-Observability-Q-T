@@ -1,38 +1,26 @@
 [
   {
-    "date": "2026-03-10",
+    "date": "2026-03-12",
     "npm_downloads": {
-      "ajv": 264141721,
-      "typia": 255259
+      "ajv": 220631931,
+      "typia": 211371
     },
-    "githup_repo_count": 2403,
-    "starsCount": {
-      "ajv": 14637,
-      "typia": 5585
-    }
+    "repo_count": 2414,
+    "new_repos": null,
+    "total_stars": 325740,
+    "avg_stars": "135",
+    "active_repos": 28
   },
   {
-    "date": "2026-03-10",
+    "date": "2026-03-13",
     "npm_downloads": {
-      "ajv": 264141721,
-      "typia": 255259
+      "ajv": 220631931,
+      "typia": 211371
     },
-    "githup_repo_count": 2405,
-    "starsCount": {
-      "ajv": 14637,
-      "typia": 5586
-    }
-  },
-  {
-    "date": "2026-03-10",
-    "npm_downloads": {
-      "ajv": 264141721,
-      "typia": 255259
-    },
-    "githup_repo_count": 2405,
-    "starsCount": {
-      "ajv": 14637,
-      "typia": 5586
-    }
+    "repo_count": 2414,
+    "new_repos": 0,
+    "total_stars": 325757,
+    "avg_stars": "135",
+    "active_repos": 28
   }
 ]

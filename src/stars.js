@@ -1,4 +1,4 @@
-async function fetchGitHubTopicStarsCount(topic, pkg){
+async function fetchGitHubTopicStarsCount(topic){
     const url = `https://api.github.com/search/repositories?q=topic:${topic}`;
     
     try {
@@ -10,11 +10,10 @@ async function fetchGitHubTopicStarsCount(topic, pkg){
 
         const data = await res.json();
 
-        const stars = data.items.filter(p => p.name===pkg)[0].stargazers_count;
+        //! calculate the total number of stars for the json schema topic across all repos
+        const totalStars = data.items.reduce((acc, item) => acc + item.stargazers_count, 0);
 
-        // console.log(data.items.filter(p => p.name===pkg)[0].stargazers_count);
-
-        return stars;
+        return totalStars;
 
     } catch (error) {
         console.error("Failed to fetch GitHub repos:", error);
