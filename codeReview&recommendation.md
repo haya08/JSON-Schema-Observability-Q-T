@@ -134,29 +134,64 @@ Current Architecture
 
 The current implementation follows a pipeline designed primarily for manual analysis:
 
-GitHub API
-    ↓
-Node script
-    ↓
-CSV file
-    ↓
-csvkit commands
-    ↓
-gnuplot
+## Current Prototype Architecture
+
+```mermaid
+flowchart TD
+
+A[GitHub API] --> B[Node.js Script]
+
+B --> C[CSV Data File]
+
+C --> D[csvkit Processing]
+
+D --> E[gnuplot Visualization]
+
+E --> F[Static Graph Output]
+```
 
 This architecture works well for generating a dataset once and producing a static visualization. However, it introduces several limitations when trying to evolve the system into a long-term observability platform as mentioned above.
 
 Instead, a simpler and more extensible architecture can be implemented by starting fresh with a system designed specifically for ecosystem observability.
 
-Data Sources (GitHub API, npm API)
-        ↓
-Metrics Collectors (Node.js scripts)
-        ↓
-Time-Series Data Storage (JSON or database)
-        ↓
-Automated Collection (GitHub Actions)
-        ↓
-Dashboard & Visualizations
+## Architecture
+
+```mermaid
+flowchart TD
+
+A[GitHub API]
+A2[npm Registry API]
+
+B[Metrics Collectors]
+C[Node.js Metrics Scripts]
+
+D[metrics.json Storage]
+
+E[GitHub Actions Scheduler]
+
+F[Dashboard / Charts]
+G[Ecosystem Insights]
+
+A --> B
+A2 --> B
+B --> C
+C --> D
+D --> E
+E --> C
+D --> F
+F --> G
+
+classDef source fill:#1f2937,color:#fff
+classDef process fill:#2563eb,color:#fff
+classDef storage fill:#059669,color:#fff
+classDef visual fill:#7c3aed,color:#fff
+
+class A,A2 source
+class B,C process
+class D storage
+class E process
+class F,G visual
+```
 
 In this architecture:
 
