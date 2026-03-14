@@ -126,25 +126,79 @@ I discovered that i need to create a folder with name **data** that each time i 
 
 # Recommendation
 
-I recommend starting fresh rather than building directly on this prototype.
+While the current prototype demonstrates useful ideas for collecting ecosystem data, I recommend starting fresh rather than extending the existing implementation.
 
-While the existing code demonstrates useful ideas for collecting ecosystem data, the current architecture is tightly coupled to a manual workflow involving CSV processing and external tools.
+The main reason is that the current project is designed as a one-time data analysis pipeline, whereas the goal of this project is to build a continuous observability system for the JSON Schema ecosystem. These two goals require very different architectures.
 
-Starting fresh would make it easier to design a simpler pipeline focused on automated metric collection, structured storage (such as JSON), and automated visualization.
+Current Architecture
 
-However, the general idea of collecting repository metadata using the GitHub API is still valuable and can inform the design of a new implementation.
+The current implementation follows a pipeline designed primarily for manual analysis:
+
+GitHub API
+    ↓
+Node script
+    ↓
+CSV file
+    ↓
+csvkit commands
+    ↓
+gnuplot
+
+This architecture works well for generating a dataset once and producing a static visualization. However, it introduces several limitations when trying to evolve the system into a long-term observability platform as mentioned above.
+
+Instead, a simpler and more extensible architecture can be implemented by starting fresh with a system designed specifically for ecosystem observability.
+
+Data Sources (GitHub API, npm API)
+        ↓
+Metrics Collectors (Node.js scripts)
+        ↓
+Time-Series Data Storage (JSON or database)
+        ↓
+Automated Collection (GitHub Actions)
+        ↓
+Dashboard & Visualizations
+
+In this architecture:
+
+Metrics collectors periodically gather ecosystem data from APIs.
+
+The collected metrics are stored in a time-series dataset, allowing historical analysis.
+
+Automation (e.g., scheduled workflows) ensures that data is updated regularly.
+
+A dashboard provides clear visualizations of ecosystem trends over time.
+
+Why Starting Fresh is Preferable
+
+Starting fresh allows the system to be designed with observability as the primary goal. This enables:
+
+automated and continuous metric collection
+
+simpler and more maintainable data pipelines
+
+structured time-series storage for ecosystem metrics
+
+easier addition of new metrics in the future
+
+integration with interactive dashboards
+
+While the prototype provides valuable insights into collecting repository data from GitHub, rebuilding the system with a new architecture will result in a more maintainable, extensible, and automation-friendly observability platform for the JSON Schema ecosystem.
 
 ---
 
 # What I Would Keep from the Current Approach
 
-Even if starting fresh, several ideas from the prototype are worth preserving:
+Although a fresh architecture is recommended, the current prototype still contains several useful components that can inform the new implementation.
 
-* Using GitHub topics to identify ecosystem repositories
-* Collecting metadata such as repository creation date
-* Using the GitHub API as the primary data source
-* Tracking ecosystem growth over time
+First, the existing integration with the GitHub API using Octokit provides a solid reference for authentication, pagination, and repository search queries. This logic can be reused when implementing new metrics collectors.
 
-These concepts provide a solid foundation for building a more automated observability system.
+Second, the repository processing logic demonstrates a practical approach for collecting multiple metrics from a repository and aggregating them into a single data structure.
+
+Third, the prototype already identifies several useful GitHub API endpoints (such as repository metadata, commits, releases, and topics) that can be leveraged when designing ecosystem metrics.
+
+Finally, the current implementation highlights important edge cases, such as repositories without releases or commits, which should be handled gracefully in the redesigned system.
+
+These elements provide valuable insights and can serve as a reference when building the new observability pipeline.
+
 
 ---
