@@ -3,7 +3,7 @@ require("dotenv").config();
 const fetchWithRetry = require("./githubRateLimit");
 
 async function fetchGitHubTopicRepoCount(topic, since) {
-    const url = `https://api.github.com/search/repositories?q=topic:${topic}+pushed:>${since}&per_page=100`;
+    const url = `https://api.github.com/search/repositories?q=topic:${topic}`;
     
     const res = await fetchWithRetry(url);
 
