@@ -1,26 +1,14 @@
 [
   {
-    "date": "2026-03-12",
+    "date": "2026-03-15",
     "npm_downloads": {
-      "ajv": 220631931,
-      "typia": 211371
+      "ajv": 218682118,
+      "typia": 217925
     },
-    "repo_count": 2414,
-    "new_repos": null,
-    "total_stars": 325740,
+    "repo_count": 2420,
+    "new_repos": 2420,
+    "total_stars": 325828,
     "avg_stars": "135",
-    "active_repos": 28
-  },
-  {
-    "date": "2026-03-13",
-    "npm_downloads": {
-      "ajv": 220631931,
-      "typia": 211371
-    },
-    "repo_count": 2414,
-    "new_repos": 0,
-    "total_stars": 325757,
-    "avg_stars": "135",
-    "active_repos": 28
+    "active_repos": 976
   }
 ]

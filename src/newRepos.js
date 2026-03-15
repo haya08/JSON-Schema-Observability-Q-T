@@ -11,7 +11,9 @@ async function showGrowth(currentCount) {
             const growth = currentCount - lastCount;
             return growth;
         }
-        return null;
+        console.log(currentCount);
+        
+        return currentCount;
 
     } catch (error) {
         console.error("Failed to show growth:", error);

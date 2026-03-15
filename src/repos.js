@@ -1,22 +1,15 @@
+require("dotenv").config();
 
-async function fetchGitHubTopicRepoCount(topic) {
-    const url = `https://api.github.com/search/repositories?q=topic:${topic}`;
+const fetchWithRetry = require("./githubRateLimit");
 
-    try {
-        const res = await fetch(url);
+async function fetchGitHubTopicRepoCount(topic, since) {
+    const url = `https://api.github.com/search/repositories?q=topic:${topic}+pushed:>${since}&per_page=100`;
+    
+    const res = await fetchWithRetry(url);
 
-        if (!res.ok) {
-            throw new Error(`GitHub API error: ${res.status}`);
-        }
+    const data = await res.json();
 
-        const data = await res.json();
-
-        return data.total_count;
-
-    } catch (error) {
-        console.error("Failed to fetch GitHub repos:", error);
-        return null;
-    }
+    return data.total_count;
 }
 
 module.exports = fetchGitHubTopicRepoCount;

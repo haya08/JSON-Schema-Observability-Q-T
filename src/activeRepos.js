@@ -1,27 +1,17 @@
+const fetchWithRetry = require("./githubRateLimit");
+
 async function fetchGitHubActiveRepoCount(topic) {
-    const url = `https://api.github.com/search/repositories?q=topic:${topic}`;
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+    const dateStr = oneYearAgo.toISOString().split('T')[0];
 
-    try {
-        const res = await fetch(url);
+    const url = `https://api.github.com/search/repositories?q=topic:${topic}+pushed:>${dateStr}&per_page=1`;
+    
+    const res = await fetchWithRetry(url);
 
-        if (!res.ok) {
-            throw new Error(`GitHub API error: ${res.status}`);
-        }
+    const data = await res.json();
 
-        const data = await res.json();
-
-        //! calculate the total number of active repos
-        const today = new Date();
-        const pastYear = today.getFullYear() - 1;
-        today.setFullYear(pastYear);
-        const active_repos = data.items.filter(p => new Date(p.pushed_at) > today).length;
-
-        return active_repos;
-
-    } catch (error) {
-        console.error("Failed to fetch GitHub repos:", error);
-        return null;
-    }
+    return data.total_count;
 }
 
 module.exports = fetchGitHubActiveRepoCount;
