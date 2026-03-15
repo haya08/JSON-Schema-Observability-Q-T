@@ -261,11 +261,27 @@ Another challenge was ensuring the GitHub workflow only commits changes when the
 
 # Future Improvements
 
-Possible extensions include:
+## Adding repository snapshot
+To be clear, all we have now is just aggregate numbers about all the repos tagged with JSON Schema topic.
 
-* tracking more JSON Schema libraries
-* measuring ecosystem growth rate
-* tracking top repositories by stars
+**Aggregate numbers alone are misleading**
+
+To understand this lets take a look at this example:
+
+```
+{ "date": "2026-03-14", "repo_count": 2414, "total_stars": 325740 }
+{ "date": "2026-03-21", "repo_count": 2420, "total_stars": 326100 }
+```
+
+Stars went up by 360. Looks healthy. But you have no idea if:
+
+  Those 360 stars all came from one repo going viral while everything else stagnated.
+  
+  6 new repos were created but 10 others went completely dead.
+  
+  The top validator (ajv) is actually losing stars while low-quality clones are gaining them.
+
+So we can get this to conclusion : **aggregate numbers hide the story. Per-repo data tells it.**
 
 ---
 
