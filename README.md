@@ -285,6 +285,35 @@ So we can get this to conclusion : **aggregate numbers hide the story. Per-repo 
 
 ---
 
+## Avoid reaching github rate limit
+We need to work on 2 parts:
+
+#### Part 1 — Only fetch what's new or changed
+Instead of fetching all 2414 repos (repos tagged with JSON Schema topic), we ask GitHub: "give us only repos that were pushed to since our last run."
+
+This might return 50 repos instead of 2414 — a 48x reduction in API calls.
+
+#### Part 2 — Checkpoint file to resume after a crash
+Even after Part 1, you might be fetching 200 repos and crash halfway through at repo #97. Without a checkpoint, next run starts from zero again.
+
+A checkpoint file tracks exactly where you stopped.
+
+Its structure may look like that:
+
+```
+{
+    "last_successful_run": "2026-03-07",
+    "last_completed_page": 4,
+    "processed_repos": [
+        "ajv-validator/ajv",
+        "tdegrunt/jsonschema",
+        "..."
+    ]
+}
+```
+
+---
+
 # AI Assistance
 
 AI tools were used for:
