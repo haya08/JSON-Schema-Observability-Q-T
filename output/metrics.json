@@ -10,5 +10,17 @@
     "total_stars": 325828,
     "avg_stars": "135",
     "active_repos": 976
+  },
+  {
+    "date": "2026-03-16",
+    "npm_downloads": {
+      "ajv": 215589186,
+      "typia": 216538
+    },
+    "repo_count": 2427,
+    "new_repos": 7,
+    "total_stars": 325917,
+    "avg_stars": "134",
+    "active_repos": 983
   }
 ]
