@@ -1,7 +1,7 @@
 
 async function githubFetch(url) {
     const res = await fetch(url, {
-        headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
+        headers: { Authorization: `Bearer ${process.env.MY_GITHUB_TOKEN}` }
     });
 
     const remaining = parseInt(res.headers.get('x-ratelimit-remaining'));
