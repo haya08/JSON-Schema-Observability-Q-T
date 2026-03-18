@@ -1,0 +1,36 @@
+{
+  "collectedAt": "2026-03-18T19:58:23.013Z",
+  "sources": [
+    "github",
+    "npm"
+  ],
+  "totalRepos": {
+    "count": 2438,
+    "query": "topic:json-schema+is:public",
+    "fetchedAt": "2026-03-18T19:58:23.013Z",
+    "source": "github"
+  },
+  "activeRepos": {
+    "count": 994,
+    "query": "topic:json-schema+is:public",
+    "definition": "Repositories with at least one push in the last 12 months",
+    "fetchedAt": "2026-03-18T19:58:22.252Z",
+    "source": "github"
+  },
+  "npmDownloads": [
+    {
+      "package": "ajv",
+      "downloads": 218131858,
+      "period": "last-week",
+      "fetchedAt": "2026-03-18T19:58:21.929Z",
+      "source": "npm"
+    },
+    {
+      "package": "json-schema",
+      "downloads": 28740435,
+      "period": "last-week",
+      "fetchedAt": "2026-03-18T19:58:22.018Z",
+      "source": "npm"
+    }
+  ]
+}

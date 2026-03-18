@@ -1,0 +1,165 @@
+{
+  "date": "2026-03-18",
+  "repos": [
+    {
+      "name": "fastapi/fastapi",
+      "stars": 96320,
+      "forks": 8877,
+      "issues": 164,
+      "watchers": 96320,
+      "updatedAt": "2026-03-18T19:47:12Z"
+    },
+    {
+      "name": "fastapi/full-stack-fastapi-template",
+      "stars": 42121,
+      "forks": 8239,
+      "issues": 13,
+      "watchers": 42121,
+      "updatedAt": "2026-03-18T19:10:18Z"
+    },
+    {
+      "name": "pydantic/pydantic",
+      "stars": 27214,
+      "forks": 2495,
+      "issues": 543,
+      "watchers": 27214,
+      "updatedAt": "2026-03-18T19:31:46Z"
+    },
+    {
+      "name": "fastapi/sqlmodel",
+      "stars": 17731,
+      "forks": 821,
+      "issues": 116,
+      "watchers": 17731,
+      "updatedAt": "2026-03-18T19:29:42Z"
+    },
+    {
+      "name": "rjsf-team/react-jsonschema-form",
+      "stars": 15688,
+      "forks": 2322,
+      "issues": 201,
+      "watchers": 15688,
+      "updatedAt": "2026-03-18T15:48:07Z"
+    },
+    {
+      "name": "ajv-validator/ajv",
+      "stars": 14645,
+      "forks": 951,
+      "issues": 321,
+      "watchers": 14645,
+      "updatedAt": "2026-03-18T17:41:14Z"
+    },
+    {
+      "name": "glideapps/quicktype",
+      "stars": 13662,
+      "forks": 1177,
+      "issues": 560,
+      "watchers": 13662,
+      "updatedAt": "2026-03-18T08:31:45Z"
+    },
+    {
+      "name": "alibaba/formily",
+      "stars": 12655,
+      "forks": 1600,
+      "issues": 138,
+      "watchers": 12655,
+      "updatedAt": "2026-03-18T19:58:09Z"
+    },
+    {
+      "name": "alibaba/x-render",
+      "stars": 7842,
+      "forks": 1082,
+      "issues": 50,
+      "watchers": 7842,
+      "updatedAt": "2026-03-18T13:13:09Z"
+    },
+    {
+      "name": "joelittlejohn/jsonschema2pojo",
+      "stars": 6369,
+      "forks": 1672,
+      "issues": 236,
+      "watchers": 6369,
+      "updatedAt": "2026-03-17T15:35:30Z"
+    },
+    {
+      "name": "microsoft/typespec",
+      "stars": 5629,
+      "forks": 344,
+      "issues": 1082,
+      "watchers": 5629,
+      "updatedAt": "2026-03-18T17:41:39Z"
+    },
+    {
+      "name": "samchon/typia",
+      "stars": 5606,
+      "forks": 206,
+      "issues": 51,
+      "watchers": 5606,
+      "updatedAt": "2026-03-18T10:19:06Z"
+    },
+    {
+      "name": "python-jsonschema/jsonschema",
+      "stars": 4934,
+      "forks": 610,
+      "issues": 48,
+      "watchers": 4934,
+      "updatedAt": "2026-03-17T23:08:43Z"
+    },
+    {
+      "name": "json-schema-org/json-schema-spec",
+      "stars": 4903,
+      "forks": 414,
+      "issues": 62,
+      "watchers": 4903,
+      "updatedAt": "2026-03-18T15:09:35Z"
+    },
+    {
+      "name": "json-editor/json-editor",
+      "stars": 4897,
+      "forks": 702,
+      "issues": 293,
+      "watchers": 4897,
+      "updatedAt": "2026-03-18T01:54:55Z"
+    },
+    {
+      "name": "yosriady/awesome-api-devtools",
+      "stars": 4006,
+      "forks": 550,
+      "issues": 15,
+      "watchers": 4006,
+      "updatedAt": "2026-03-18T03:42:41Z"
+    },
+    {
+      "name": "danielgtaylor/huma",
+      "stars": 3881,
+      "forks": 249,
+      "issues": 101,
+      "watchers": 3881,
+      "updatedAt": "2026-03-18T15:14:33Z"
+    },
+    {
+      "name": "koxudaxi/datamodel-code-generator",
+      "stars": 3815,
+      "forks": 430,
+      "issues": 39,
+      "watchers": 3815,
+      "updatedAt": "2026-03-18T08:24:34Z"
+    },
+    {
+      "name": "jcrist/msgspec",
+      "stars": 3651,
+      "forks": 140,
+      "issues": 227,
+      "watchers": 3651,
+      "updatedAt": "2026-03-18T10:43:33Z"
+    },
+    {
+      "name": "cyclops-ui/cyclops",
+      "stars": 3318,
+      "forks": 767,
+      "issues": 81,
+      "watchers": 3318,
+      "updatedAt": "2026-03-12T03:12:24Z"
+    }
+  ]
+}

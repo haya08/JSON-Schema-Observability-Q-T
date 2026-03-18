@@ -1,21 +1,14 @@
 <mxfile host="65bd71144e">
     <diagram id="hI7GsnPYy0fdrMQnp1b8" name="Page-1">
-        <mxGraphModel dx="746" dy="466" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="568" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="320" y="40" width="120" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="4" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="320" y="190" width="120" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="5" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="320" y="340" width="120" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="6" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="320" y="510" width="120" height="60" as="geometry"/>
-                </mxCell>
+                <UserObject label="src/&#xa;   config/&#xa;      config.js&#xa;&#xa;&#xa;   metrics/&#xa;      github/&#xa;         fetchRepos.js&#xa;         fetchRepoDetails.js&#xa;         fetchActiveRepos.js&#xa;&#xa;&#xa;      npm/&#xa;         fetchDownloads.js&#xa;&#xa;&#xa;   collectors/&#xa;      collectEcosystem.js&#xa;      collectRepos.js&#xa;&#xa;&#xa;   processing/&#xa;      aggregateEcosystem.js&#xa;      processRepoSnapshot.js&#xa;&#xa;&#xa;   storage/&#xa;      saveEcosystemSnapshot.js&#xa;      saveRepoSnapshot.js&#xa;&#xa;&#xa;   utils/&#xa;      githubClient.js&#xa;      date.js&#xa;      logger.js&#xa;&#xa;&#xa;   index.js" link="src/&#xa;   config/&#xa;      config.js&#xa;&#xa;&#xa;   metrics/&#xa;      github/&#xa;         fetchRepos.js&#xa;         fetchRepoDetails.js&#xa;         fetchActiveRepos.js&#xa;&#xa;&#xa;      npm/&#xa;         fetchDownloads.js&#xa;&#xa;&#xa;   collectors/&#xa;      collectEcosystem.js&#xa;      collectRepos.js&#xa;&#xa;&#xa;   processing/&#xa;      aggregateEcosystem.js&#xa;      processRepoSnapshot.js&#xa;&#xa;&#xa;   storage/&#xa;      saveEcosystemSnapshot.js&#xa;      saveRepoSnapshot.js&#xa;&#xa;&#xa;   utils/&#xa;      githubClient.js&#xa;      date.js&#xa;      logger.js&#xa;&#xa;&#xa;   index.js" id="6">
+                    <mxCell style="text;whiteSpace=wrap;" vertex="1" parent="1">
+                        <mxGeometry x="50" y="280" width="370" height="570" as="geometry"/>
+                    </mxCell>
+                </UserObject>
             </root>
         </mxGraphModel>
     </diagram>
