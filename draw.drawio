@@ -1,12 +1,20 @@
 <mxfile host="65bd71144e">
     <diagram id="hI7GsnPYy0fdrMQnp1b8" name="Page-1">
-        <mxGraphModel dx="568" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="483" dy="466" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <UserObject label="src/&#xa;   config/&#xa;      config.js&#xa;&#xa;&#xa;   metrics/&#xa;      github/&#xa;         fetchRepos.js&#xa;         fetchRepoDetails.js&#xa;         fetchActiveRepos.js&#xa;&#xa;&#xa;      npm/&#xa;         fetchDownloads.js&#xa;&#xa;&#xa;   collectors/&#xa;      collectEcosystem.js&#xa;      collectRepos.js&#xa;&#xa;&#xa;   processing/&#xa;      aggregateEcosystem.js&#xa;      processRepoSnapshot.js&#xa;&#xa;&#xa;   storage/&#xa;      saveEcosystemSnapshot.js&#xa;      saveRepoSnapshot.js&#xa;&#xa;&#xa;   utils/&#xa;      githubClient.js&#xa;      date.js&#xa;      logger.js&#xa;&#xa;&#xa;   index.js" link="src/&#xa;   config/&#xa;      config.js&#xa;&#xa;&#xa;   metrics/&#xa;      github/&#xa;         fetchRepos.js&#xa;         fetchRepoDetails.js&#xa;         fetchActiveRepos.js&#xa;&#xa;&#xa;      npm/&#xa;         fetchDownloads.js&#xa;&#xa;&#xa;   collectors/&#xa;      collectEcosystem.js&#xa;      collectRepos.js&#xa;&#xa;&#xa;   processing/&#xa;      aggregateEcosystem.js&#xa;      processRepoSnapshot.js&#xa;&#xa;&#xa;   storage/&#xa;      saveEcosystemSnapshot.js&#xa;      saveRepoSnapshot.js&#xa;&#xa;&#xa;   utils/&#xa;      githubClient.js&#xa;      date.js&#xa;      logger.js&#xa;&#xa;&#xa;   index.js" id="6">
-                    <mxCell style="text;whiteSpace=wrap;" vertex="1" parent="1">
-                        <mxGeometry x="50" y="280" width="370" height="570" as="geometry"/>
+                    <mxCell style="text;whiteSpace=wrap;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" parent="1" vertex="1">
+                        <mxGeometry x="80" y="280" width="200" height="570" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="7" value="--------------------------------------------------&#xa;| Overview Cards                                 |&#xa;--------------------------------------------------&#xa;| Growth Chart        | Activity Chart           |&#xa;--------------------------------------------------&#xa;| Top Repos Table                              |&#xa;--------------------------------------------------&#xa;| Distribution Chart  | npm Downloads Chart     |&#xa;--------------------------------------------------&#xa;| Ecosystem Health (Badge)                      |&#xa;--------------------------------------------------" style="text;whiteSpace=wrap;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="390" width="260" height="200" as="geometry"/>
+                </mxCell>
+                <UserObject label="dashboard/&#xa;   index.html&#xa;   styles.css&#xa;&#xa;&#xa;   js/&#xa;      main.js&#xa;      api.js&#xa;      charts.js&#xa;      utils.js&#xa;&#xa;&#xa;   components/&#xa;      overview.js&#xa;      growthChart.js&#xa;      activityChart.js&#xa;      reposTable.js" link="dashboard/&#xa;   index.html&#xa;   styles.css&#xa;&#xa;&#xa;   js/&#xa;      main.js&#xa;      api.js&#xa;      charts.js&#xa;      utils.js&#xa;&#xa;&#xa;   components/&#xa;      overview.js&#xa;      growthChart.js&#xa;      activityChart.js&#xa;      reposTable.js" id="8">
+                    <mxCell style="text;whiteSpace=wrap;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+                        <mxGeometry x="360" y="640" width="130" height="270" as="geometry"/>
                     </mxCell>
                 </UserObject>
             </root>

@@ -20,10 +20,10 @@ async function main(){
     const ecosystem = await collectEcosystem();
 
     //! process data
-    await proccessEcosystem(ecosystem);
+    const proccessedEcosystem = await proccessEcosystem(ecosystem);
 
     //! save data
-    await saveEcosystemSnapshot(ecosystem);
+    await saveEcosystemSnapshot(proccessedEcosystem);
 
     //? repos
 
@@ -31,10 +31,10 @@ async function main(){
     const repos = await collectRepos();
 
     //! process data
-    await processRepo(repos);
+    const proccessedRepos = await processRepo(repos);
 
     //! save data
-    await saveReposSnapshot(repos);
+    await saveReposSnapshot(proccessedRepos);
 
     console.log("Done!");
 }

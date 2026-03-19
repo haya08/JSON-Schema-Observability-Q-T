@@ -1,0 +1,22 @@
+{
+  "date": "2026-03-19T03:53:28.478Z",
+  "totals": {
+    "reposCount": 2440,
+    "activeRepos": 995,
+    "npmDownloads": [
+      {
+        "package": "ajv",
+        "downloads": 218131858
+      },
+      {
+        "package": "json-schema",
+        "downloads": 28740435
+      }
+    ]
+  },
+  "metrics": {
+    "activityRate": "0.41",
+    "growthRate": null
+  },
+  "health": "moderate"
+}

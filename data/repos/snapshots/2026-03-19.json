@@ -1,37 +1,37 @@
 {
-  "date": "2026-03-18",
+  "date": "2026-03-19",
   "repos": [
     {
       "name": "fastapi/fastapi",
-      "stars": 96320,
-      "forks": 8877,
-      "issues": 164,
-      "watchers": 96320,
-      "updatedAt": "2026-03-18T19:47:12Z"
+      "stars": 96323,
+      "forks": 8878,
+      "issues": 171,
+      "watchers": 96323,
+      "updatedAt": "2026-03-19T02:18:25Z"
     },
     {
       "name": "fastapi/full-stack-fastapi-template",
-      "stars": 42121,
-      "forks": 8239,
+      "stars": 42131,
+      "forks": 8242,
       "issues": 13,
-      "watchers": 42121,
-      "updatedAt": "2026-03-18T19:10:18Z"
+      "watchers": 42131,
+      "updatedAt": "2026-03-19T03:03:09Z"
     },
     {
       "name": "pydantic/pydantic",
-      "stars": 27214,
+      "stars": 27216,
       "forks": 2495,
       "issues": 543,
-      "watchers": 27214,
-      "updatedAt": "2026-03-18T19:31:46Z"
+      "watchers": 27216,
+      "updatedAt": "2026-03-19T03:16:22Z"
     },
     {
       "name": "fastapi/sqlmodel",
-      "stars": 17731,
-      "forks": 821,
-      "issues": 116,
-      "watchers": 17731,
-      "updatedAt": "2026-03-18T19:29:42Z"
+      "stars": 17733,
+      "forks": 822,
+      "issues": 117,
+      "watchers": 17733,
+      "updatedAt": "2026-03-19T03:18:16Z"
     },
     {
       "name": "rjsf-team/react-jsonschema-form",
@@ -85,17 +85,17 @@
       "name": "microsoft/typespec",
       "stars": 5629,
       "forks": 344,
-      "issues": 1082,
+      "issues": 1080,
       "watchers": 5629,
-      "updatedAt": "2026-03-18T17:41:39Z"
+      "updatedAt": "2026-03-19T03:51:03Z"
     },
     {
       "name": "samchon/typia",
-      "stars": 5606,
+      "stars": 5605,
       "forks": 206,
       "issues": 51,
-      "watchers": 5606,
-      "updatedAt": "2026-03-18T10:19:06Z"
+      "watchers": 5605,
+      "updatedAt": "2026-03-18T20:09:00Z"
     },
     {
       "name": "python-jsonschema/jsonschema",
@@ -109,7 +109,7 @@
       "name": "json-schema-org/json-schema-spec",
       "stars": 4903,
       "forks": 414,
-      "issues": 62,
+      "issues": 64,
       "watchers": 4903,
       "updatedAt": "2026-03-18T15:09:35Z"
     },
@@ -123,11 +123,11 @@
     },
     {
       "name": "yosriady/awesome-api-devtools",
-      "stars": 4006,
+      "stars": 4007,
       "forks": 550,
       "issues": 15,
-      "watchers": 4006,
-      "updatedAt": "2026-03-18T03:42:41Z"
+      "watchers": 4007,
+      "updatedAt": "2026-03-19T02:47:06Z"
     },
     {
       "name": "danielgtaylor/huma",
@@ -147,19 +147,21 @@
     },
     {
       "name": "jcrist/msgspec",
-      "stars": 3651,
+      "stars": 3652,
       "forks": 140,
       "issues": 227,
-      "watchers": 3651,
-      "updatedAt": "2026-03-18T10:43:33Z"
+      "watchers": 3652,
+      "updatedAt": "2026-03-18T21:04:13Z"
     },
     {
       "name": "cyclops-ui/cyclops",
-      "stars": 3318,
+      "stars": 3317,
       "forks": 767,
       "issues": 81,
-      "watchers": 3318,
-      "updatedAt": "2026-03-12T03:12:24Z"
+      "watchers": 3317,
+      "updatedAt": "2026-03-19T01:51:00Z"
     }
-  ]
+  ],
+  "popularityScore": null,
+  "health": "low"
 }

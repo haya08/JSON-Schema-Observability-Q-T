@@ -5,7 +5,6 @@ const config = require("../config/config");
 
 async function collectEcosystem() {
     try {
-        console.log(config);
         const [
             totalRepos,
             activeRepos,
