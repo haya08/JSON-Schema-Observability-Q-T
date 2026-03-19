@@ -1,18 +1,21 @@
 {
-  "date": "2026-03-19T03:53:28.478Z",
+  "date": "2026-03-19T15:02:30.356Z",
   "totals": {
-    "reposCount": 2440,
-    "activeRepos": 995,
-    "npmDownloads": [
-      {
-        "package": "ajv",
-        "downloads": 218131858
-      },
-      {
-        "package": "json-schema",
-        "downloads": 28740435
-      }
-    ]
+    "reposCount": 2442,
+    "activeRepos": 997,
+    "npmDownloads": {
+      "total": 246872293,
+      "packages": [
+        {
+          "package": "ajv",
+          "downloads": 218131858
+        },
+        {
+          "package": "json-schema",
+          "downloads": 28740435
+        }
+      ]
+    }
   },
   "metrics": {
     "activityRate": "0.41",

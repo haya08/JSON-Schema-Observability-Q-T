@@ -27,6 +27,7 @@ function ecosystemSnapshot (data, prevSnapshot = null) {
     const activeRepos = data.activeRepos.count;
     //! get the pkg name and downloads
     const npmDownloads = data.npmDownloads.map(({package, downloads}) => ({package, downloads}));
+    const totalNpmDownloads = npmDownloads.reduce((total, {downloads}) => total + downloads, 0);
 
     //! cal activity rate
     const activityRate = calActivityRate(activeRepos, totalRepos); 
@@ -39,7 +40,10 @@ function ecosystemSnapshot (data, prevSnapshot = null) {
         totals:{
             reposCount: totalRepos,
             activeRepos: activeRepos,
-            npmDownloads: npmDownloads,
+            npmDownloads: {
+                total: totalNpmDownloads,
+                packages: npmDownloads
+            },
         },
         metrics:{
             activityRate: activityRate,
