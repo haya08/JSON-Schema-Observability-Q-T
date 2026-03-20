@@ -95,7 +95,42 @@
             </div>
         </div>
 
-        <div class="table-container">
+        <!-- <div class="table-container">
+            <h2>Top Repositories</h2>
+
+            <div class="table-controls">
+                <input type="text" id="searchInput" placeholder="Search repository..." />
+                
+                <select id="sortSelect">
+                    <option value="score">Sort by Score</option>
+                    <option value="stars">Sort by Stars</option>
+                    <option value="forks">Sort by Forks</option>
+                </select>
+            </div>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Stars</th>
+                    <th>Forks</th>
+                    <th>Score</th>
+                    <th>Health</th>
+                </tr>
+                </thead>
+
+                <tbody id="reposTableBody"></tbody>
+            </table>
+        </div> -->
+
+        <div class="tabs">
+            <button class="tab active" data-tab="top">Top Repos</button>
+            <button class="tab" data-tab="trending">🔥 Trending</button>
+        </div>
+
+        <div id="topTab" class="tab-content active">
+            <div class="table-container">
             <h2>Top Repositories</h2>
 
             <div class="table-controls">
@@ -123,6 +158,21 @@
                 <tbody id="reposTableBody"></tbody>
             </table>
         </div>
+        </div>
+
+        <!-- Trending -->
+        <div id="trendingTab" class="tab-content">
+            <div class="trending-container">
+                <h2>
+                    <i class="fa-solid fa-fire"></i>
+                    Trending Repositories
+                </h2>   
+
+                <div id="trendingList"></div>
+            </div>
+        </div>
+
+
     </div>
     
 

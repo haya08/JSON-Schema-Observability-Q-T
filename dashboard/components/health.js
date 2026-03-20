@@ -4,24 +4,34 @@ export function renderHealthBadge(data) {
     const title = document.getElementById("healthTitle");
     const desc = document.getElementById("healthDesc");
 
-    const health = data.health;
+    const { health, trend } = data;
 
     card.className = `health-card ${health.status}`;
 
-    title.innerText = health.label;
-    desc.innerText = getDescription(health.status);
+    title.innerHTML = `
+        ${health.label} ${getTrendIcon(trend)}
+    `;
 
-    icon.innerHTML = getIcon(health.status);
+    desc.innerText = getDescription(health.status, trend);
+
+    icon.innerHTML = getHealthIcon(health.status);
 }
 
-function getIcon(status) {
+function getHealthIcon(status) {
     if (status === "healthy") return "🟢";
     if (status === "moderate") return "⚠️";
     return "🔴";
 }
 
-function getDescription(status) {
-    if (status === "healthy") return "Strong growth and high activity";
-    if (status === "moderate") return "Normal growth with stable activity";
-    return "Low activity or declining growth";
+function getTrendIcon(trend) {
+    if (trend === "up") return `<i class="fa-solid fa-arrow-up"></i>`;
+    if (trend === "down") return `<i class="fa-solid fa-arrow-down"></i>`;
+    return `<i class="fa-solid fa-minus"></i>`;
+}
+
+function getDescription(status, trend) {
+    if (trend === "up") return "Ecosystem is improving";
+    if (trend === "down") return "Ecosystem activity is declining";
+
+    return "Stable ecosystem activity";
 }

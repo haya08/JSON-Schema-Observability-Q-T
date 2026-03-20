@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const buildTrendingRepos = require("./buildTrendingRepos");
 
 function readSnapshots(folderPath) {
     const files = fs.readdirSync(folderPath).sort();
@@ -45,6 +46,8 @@ function buildLatestRepos() {
 
     const topRepos = repos.slice(0, 20);
 
+    const trendingRepos = buildTrendingRepos();
+
     //  summary
     const summary = {
         totalRepos: repos.length,
@@ -56,6 +59,7 @@ function buildLatestRepos() {
     const latestData = {
         generatedAt: new Date().toISOString(),
         topRepos,
+        trendingRepos,
         allRepos: repos,
         summary
     };

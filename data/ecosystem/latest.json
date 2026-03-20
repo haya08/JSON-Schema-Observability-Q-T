@@ -1,8 +1,8 @@
 {
-  "collectedAt": "2026-03-19T23:16:13.199Z",
+  "collectedAt": "2026-03-20T01:16:56.699Z",
   "cards": {
-    "totalRepos": 2445,
-    "activeRepos": 1001,
+    "totalRepos": 2446,
+    "activeRepos": 1002,
     "activityRate": "0.41",
     "totalDownloads": {
       "total": 246872293,
@@ -21,31 +21,38 @@
   "charts": {
     "growth": {
       "labels": [
-        "2026-03-19T23:16:13.197Z"
+        "2026-03-19T23:16:13.197Z",
+        "2026-03-20T01:16:56.693Z"
       ],
       "data": [
+        null,
         null
       ]
     },
     "activity": {
       "labels": [
-        "2026-03-19T23:16:13.197Z"
+        "2026-03-19T23:16:13.197Z",
+        "2026-03-20T01:16:56.693Z"
       ],
       "data": [
+        "0.41",
         "0.41"
       ]
     },
     "activeRepos": {
       "labels": [
-        "2026-03-19T23:16:13.197Z"
+        "2026-03-19T23:16:13.197Z",
+        "2026-03-20T01:16:56.693Z"
       ],
       "data": [
-        1001
+        1001,
+        1002
       ]
     }
   },
   "health": {
     "status": "moderate",
     "label": "Moderate"
-  }
+  },
+  "trend": "stable"
 }

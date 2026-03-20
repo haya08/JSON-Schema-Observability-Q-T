@@ -12,7 +12,7 @@ function calGrowthRate(prevSnapshot, totalRepos){
             return ((totalRepos - prevTotalRepos) / prevTotalRepos).toFixed(2);
         }
     }
-    return null;
+    return 0;
 }
 
 function classifyHealth(activityRate){

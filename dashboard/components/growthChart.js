@@ -16,7 +16,8 @@ export function renderGrowthChart(data) {
                 {
                     label: "Total Repositories",
                     data: chartData.data,
-                    tension: 0.4
+                    tension: 0.4,
+                    fill: true
                 }
             ]
         },
@@ -31,8 +32,7 @@ export function renderGrowthChart(data) {
                     label: (ctx) => ctx.raw.toLocaleString()
                     }
                 }
-            },
-            fill: true
+            }
         }
     });
 }

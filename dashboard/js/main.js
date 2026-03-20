@@ -6,9 +6,12 @@ import { fetchReposData } from "./api.js";
 import { initReposTable } from "../components/reposTable.js";
 import { initTheme } from "./theme.js";
 import { renderHealthBadge } from "../components/health.js";
+import { renderTrendingRepos } from "../components/trendingRepos.js";
+import { initTabs } from "../components/top-trending-tabs.js";
 
 async function init() {
     // initTheme();
+    initTabs();
 
     const EcosystemData = await fetchEcosystemData();
 
@@ -20,7 +23,7 @@ async function init() {
     const reposData = await fetchReposData();
 
     initReposTable(reposData);
-
+    renderTrendingRepos(reposData);
 }
 
 init();

@@ -39,6 +39,21 @@ function calculateHealth(cards, charts) {
     return { status: "risk", label: "At Risk" };
 }
 
+function calculateTrend(charts) {
+    const activityData = charts.activity.data;
+
+    if (activityData.length < 2) {
+        return "stable";
+    }
+
+    const last = activityData[activityData.length - 1];
+    const prev = activityData[activityData.length - 2];
+
+    if (last > prev) return "up";
+    if (last < prev) return "down";
+    return "stable";
+}
+
 function buildLatestEcosystem() {
     const ecosystemPath = path.join(__dirname, "../../data/ecosystem");
     const snapshotPath = path.join(ecosystemPath, "snapshots");
@@ -66,11 +81,14 @@ function buildLatestEcosystem() {
 
     const health = calculateHealth(cards, charts);
 
+    const trend = calculateTrend(charts);
+
     const latestData = {
         collectedAt: new Date().toISOString(),
         cards,
         charts,
-        health
+        health,
+        trend
     };
 
     const latestPath = path.join(ecosystemPath, "latest.json");
