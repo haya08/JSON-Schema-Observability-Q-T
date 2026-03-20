@@ -5,11 +5,116 @@ body {
   padding: 20px;
 }
 
+body.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+nav.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+  
+}
+
+body.dark input,
+body.dark select {
+  background: #1e293b;
+  color: white;
+  border: 1px solid #475569;
+}
+
+body.dark .Card,
+body.dark .chart-container,
+body.dark .table-container,
+body.dark .table-controls {
+  background: #1e293b;
+  box-shadow: none;
+}
+
+#themeToggle {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #0000007d;
+  text-decoration: none;
+}
+
+/*! overview */
+
 .overview {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+
+/*! health*/
+
+.health-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-top: 40px;
+  padding: 20px;
+
+  border-radius: 16px;
+
+  font-weight: 500;
+}
+
+.health-card {
+  border-left: 6px solid currentColor;
+}
+
+.health-card {
+  transition: transform 0.2s;
+}
+
+.health-card:hover {
+  transform: translateY(-3px);
+}
+
+/* icon */
+.health-icon {
+  font-size: 24px;
+}
+
+/* title */
+#healthTitle {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* description */
+#healthDesc {
+  margin: 4px 0 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.health-card.healthy {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.health-card.moderate {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.health-card.risk {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/*! cards */
 
 .Card {
   background: white;
@@ -18,21 +123,25 @@ body {
   border-style: none;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   text-align: center;
+  transition: transform 0.2s;
 }
 
 .Card h3 {
   margin-bottom: 10px;
   color: #666;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Card i {
+  color: #4f46e5;
 }
 
 .Card p {
   font-size: 24px;
   font-weight: bold;
   color: #222;
-}
-
-.Card {
-  transition: transform 0.2s;
 }
 
 .Card:hover {
@@ -54,7 +163,7 @@ body {
 }
 
 .chart-container {
-  margin-top: 40px;
+  /* margin-top: 40px; */
   background: white;
   padding: 20px;
   border-radius: 16px;
@@ -71,4 +180,88 @@ body {
   .charts-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.table-container {
+  margin-top: 40px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+body.dark th {
+  background: #334155;
+  color: #cbd5f5;
+}
+
+body.dark tr {
+  border-bottom: 1px solid #334155;
+}
+
+body.dark tr:hover {
+  background: #1e293b;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: #f3f4f6;
+  color: #555;
+}
+
+tr {
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+#searchInput {
+  padding: 8px;
+  width: 60%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+#sortSelect {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge.high {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge.medium {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.badge.low {
+  background: #fee2e2;
+  color: #991b1b;
 }

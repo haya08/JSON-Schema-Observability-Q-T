@@ -19,6 +19,26 @@ function buildChartData(snapshots, keyPath) {
     };
 }
 
+function calculateHealth(cards, charts) {
+    const activity = cards.activityRate;
+
+    const growthData = charts.growth.data;
+    const last = growthData[growthData.length - 1];
+    const prev = growthData[growthData.length - 2] || last;
+
+    const isGrowing = last >= prev;
+
+    if (activity > 0.3 && isGrowing) {
+        return { status: "healthy", label: "Healthy" };
+    }
+
+    if (activity > 0.15) {
+        return { status: "moderate", label: "Moderate" };
+    }
+
+    return { status: "risk", label: "At Risk" };
+}
+
 function buildLatestEcosystem() {
     const ecosystemPath = path.join(__dirname, "../../data/ecosystem");
     const snapshotPath = path.join(ecosystemPath, "snapshots");
@@ -44,10 +64,13 @@ function buildLatestEcosystem() {
         activeRepos: buildChartData(snapshots, "totals.activeRepos")
     };
 
+    const health = calculateHealth(cards, charts);
+
     const latestData = {
         collectedAt: new Date().toISOString(),
         cards,
-        charts
+        charts,
+        health
     };
 
     const latestPath = path.join(ecosystemPath, "latest.json");
