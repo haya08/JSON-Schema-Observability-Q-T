@@ -48,6 +48,7 @@ function render(repos) {
             <td>${formatNumber(repo.forks)}</td>
             <td>${formatNumber(repo.score)}</td>
             <td>${renderHealth(repo.health)}</td>
+            <td>${renderActivity(repo.activityStatus)}</td>
         `;
 
         tbody.appendChild(row);
@@ -62,7 +63,17 @@ function formatNumber(num) {
 }
 
 function renderHealth(health) {
-    if (health === "high") return `<span class="badge high"><i class="fa-solid fa-circle-check"></i> High</span>`;
-    if (health === "medium") return `<span class="badge medium"><i class="fa-solid fa-triangle-exclamation"></i> Medium</span>`;
-    return `<span class="badge low"><i class="fa-solid fa-circle-xmark"></i> Low</span>`;
+    if (health === "high") return `<span class="badge high"><i class="fas fa-heart-circle-check"></i> High</span>`;
+    if (health === "medium") return `<span class="badge medium"><i class="fas fa-heart-circle-exclamation"></i> Medium</span>`;
+    return `<span class="badge low"><i class="fas fa-heart-circle-xmark"></i> Low</span>`;
+}
+
+function renderActivity(status) {
+    if (status === "active") {
+        return `<span class="badge active"><i class="fa-solid fa-circle-check"></i> Active</span>`;
+    }
+    if (status === "inactive") {
+        return `<span class="badge inactive"><i class="fa-solid fa-triangle-exclamation"></i> Inactive</span>`;
+    }
+    return `<span class="badge stale"><i class="fa-solid fa-circle-xmark"></i> Stale</span>`;
 }

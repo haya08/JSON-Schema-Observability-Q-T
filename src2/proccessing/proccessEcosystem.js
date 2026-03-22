@@ -1,3 +1,19 @@
+function getActivityDistribution(repos) {
+    const stats = {
+        active: 0,
+        inactive: 0,
+        stale: 0
+    };
+
+    repos.forEach(repo => {
+        if (stats[repo.activityStatus] !== undefined) {
+            stats[repo.activityStatus]++;
+        }
+    });
+
+    return stats;
+}
+
 function calActivityRate(activeRepos, totalRepos){
     if(totalRepos){
         return (activeRepos / totalRepos).toFixed(2);
@@ -21,10 +37,14 @@ function classifyHealth(activityRate){
     return "low";
 }
 
-function ecosystemSnapshot (data, prevSnapshot = null) {
+
+
+function ecosystemSnapshot (data, proccededRepos, prevSnapshot = null) {
     const date = data.collectedAt;
     const totalRepos = data.totalRepos.count;
     const activeRepos = data.activeRepos.count;
+    const staleRepos = proccededRepos.filter(r => r.activityStatus === "stale").length;
+
     //! get the pkg name and downloads
     const npmDownloads = data.npmDownloads.map(({package, downloads}) => ({package, downloads}));
     const totalNpmDownloads = npmDownloads.reduce((total, {downloads}) => total + downloads, 0);
@@ -35,11 +55,14 @@ function ecosystemSnapshot (data, prevSnapshot = null) {
     //! cal growth rate
     const growthRate = calGrowthRate(prevSnapshot, totalRepos);
 
+    const activityDistribution = getActivityDistribution(proccededRepos);
+
     return{
         date: date,
         totals:{
             reposCount: totalRepos,
             activeRepos: activeRepos,
+            staleRepos: staleRepos,
             npmDownloads: {
                 total: totalNpmDownloads,
                 packages: npmDownloads
@@ -49,7 +72,8 @@ function ecosystemSnapshot (data, prevSnapshot = null) {
             activityRate: activityRate,
             growthRate: growthRate
         },
-        health: classifyHealth(activityRate)
+        health: classifyHealth(activityRate),
+        activityDistribution
     }
 }
 

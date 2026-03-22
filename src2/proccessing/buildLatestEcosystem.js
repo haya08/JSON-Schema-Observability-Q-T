@@ -69,6 +69,7 @@ function buildLatestEcosystem() {
     const cards = {
         totalRepos: latest.totals.reposCount,
         activeRepos: latest.totals.activeRepos,
+        staleRepos: latest.totals.staleRepos,
         activityRate: latest.metrics.activityRate,
         totalDownloads: latest.totals.npmDownloads
     };
@@ -83,12 +84,15 @@ function buildLatestEcosystem() {
 
     const trend = calculateTrend(charts);
 
+    const activityDistribution = latest.activityDistribution;
+
     const latestData = {
         collectedAt: new Date().toISOString(),
         cards,
         charts,
         health,
-        trend
+        trend,
+        activityDistribution
     };
 
     const latestPath = path.join(ecosystemPath, "latest.json");

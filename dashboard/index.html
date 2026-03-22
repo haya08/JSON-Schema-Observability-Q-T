@@ -51,49 +51,107 @@
                 </div>
             </nav>
         </section>
+
+        <section class="mb-5">
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="Card">
+                        <h3><i class="fa-solid fa-code-branch"></i> Total Repos</h3>
+                        <p id="totalRepos">--</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="Card">
+                        <h3><i class="fa-solid fa-fire"></i> Active Repos</h3>
+                        <p id="activeRepos">--</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="Card">
+                        <h3><i class="fa-solid fa-chart-line"></i> Activity Rate</h3>
+                        <p id="activityRate">--</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="Card">
+                        <h3><i class="fa-brands fa-npm"></i> Downloads</h3>
+                        <p id="downloads">--</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <div class="overview">
-            <div class="Card">
-                <h3><i class="fa-solid fa-code-branch"></i> Total Repos</h3>
-                <p id="totalRepos">--</p>
-            </div>
 
-            <div class="Card">
-                <h3><i class="fa-solid fa-fire"></i> Active Repos</h3>
-                <p id="activeRepos">--</p>
-            </div>
-
-            <div class="Card">
-                <h3><i class="fa-solid fa-chart-line"></i> Activity Rate</h3>
-                <p id="activityRate">--</p>
-            </div>
-
-            <div class="Card">
-                <h3><i class="fa-brands fa-npm"></i> Downloads</h3>
-                <p id="downloads">--</p>
-            </div>
-        </div>
-
-        <div class="health-card" id="healthCard">
+        <!-- <div class="health-card" id="healthCard">
             <div class="health-icon" id="healthIcon"></div>
 
             <div>
                 <h3 id="healthTitle">Moderate</h3>
                 <p id="healthDesc">Normal growth with stable activity</p>
             </div>
-        </div>
+        </div> -->
 
-        <div class="charts-grid">
-            <div class="chart-container">
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="Card dummy">
+                    <h3>
+                        <i class="fa-solid fa-chart-pie"></i>
+                        Activity Distribution
+                    </h3>
+                    <canvas id="activityDistributionChart"></canvas>
+                    <p class="mt-4">
+                        Breakdown of repository activity levels
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="health-card"></div>
+            </div>
+        </div>
+        <!-- <div class="insights-grid">
+            <div class="Card">
+                <h3>
+                    <i class="fa-solid fa-chart-pie"></i>
+                    Activity Distribution
+                </h3>
+                <canvas id="activityDistributionChart"></canvas>
+                <p class="mt-4">
+                    Breakdown of repository activity levels
+                </p>
+            </div>
+
+            <div id="health-card"></div>
+
+        </div> -->
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="Card">
+                    <h2>
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        Repository Growth
+                    </h2>
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="Card">
+                    <h2><i class="fa-solid fa-chart-line"></i> Activity Rate</h2>
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="insights-grid">
+            <div class="Card">
                 <h2>Repository Growth</h2>
                 <canvas id="growthChart"></canvas>
             </div>
 
-            <div class="chart-container">
+            <div class="Card">
                 <h2>Activity Rate</h2>
                 <canvas id="activityChart"></canvas>
             </div>
-        </div>
+        </div> -->
 
         <!-- <div class="table-container">
             <h2>Top Repositories</h2>
@@ -152,6 +210,7 @@
                     <th>Forks</th>
                     <th>Score</th>
                     <th>Health</th>
+                    <th>activity</th>
                 </tr>
                 </thead>
 
@@ -171,6 +230,7 @@
                 <div id="trendingList"></div>
             </div>
         </div>
+
 
 
     </div>

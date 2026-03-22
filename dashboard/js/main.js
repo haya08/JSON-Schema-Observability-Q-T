@@ -5,9 +5,10 @@ import { renderActivityChart } from "../components/activityChart.js";
 import { fetchReposData } from "./api.js";
 import { initReposTable } from "../components/reposTable.js";
 import { initTheme } from "./theme.js";
-import { renderHealthBadge } from "../components/health.js";
+import { renderHealthCard } from "../components/health.js";
 import { renderTrendingRepos } from "../components/trendingRepos.js";
 import { initTabs } from "../components/top-trending-tabs.js";
+import {renderActivityDistribution} from "../components/activityDistributionChart.js";
 
 async function init() {
     // initTheme();
@@ -16,9 +17,10 @@ async function init() {
     const EcosystemData = await fetchEcosystemData();
 
     renderOverview(EcosystemData);
+    renderActivityDistribution(EcosystemData);
+    renderHealthCard(EcosystemData);
     renderGrowthChart(EcosystemData);
     renderActivityChart(EcosystemData);
-    renderHealthBadge(EcosystemData);
 
     const reposData = await fetchReposData();
 

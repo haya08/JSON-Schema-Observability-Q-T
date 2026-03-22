@@ -1,37 +1,57 @@
-export function renderHealthBadge(data) {
-    const card = document.getElementById("healthCard");
-    const icon = document.getElementById("healthIcon");
-    const title = document.getElementById("healthTitle");
-    const desc = document.getElementById("healthDesc");
+export function renderHealthCard(data) {
+    const container = document.getElementById("health-card");
 
-    const { health, trend } = data;
+    const activityRate = data.cards.activityRate;
+    const staleRate = (data.cards.staleRepos / data.cards.totalRepos);
 
-    card.className = `health-card ${health.status}`;
+    console.log(staleRate);
 
-    title.innerHTML = `
-        ${health.label} ${getTrendIcon(trend)}
+    // 🧠 تحديد الحالة
+    let level = "moderate";
+
+    if (activityRate > 0.6 && staleRate < 0.2) {
+        level = "healthy";
+    } else if (activityRate < 0.3 || staleRate > 0.4) {
+        level = "at_risk";
+    }
+
+    // 🟡 messages
+    const statusMap = {
+        healthy: {
+            icon: "fas fa-heart-pulse",
+            title: "Healthy Growth",
+            desc: "Strong ecosystem activity"
+        },
+        moderate: {
+            icon: "fas fa-heart-pulse",
+            title: "Moderate Growth",
+            desc: "Stable ecosystem activity"
+        },
+        at_risk: {
+            icon: "🔴",
+            title: "At Risk",
+            desc: "Low activity or high stagnation"
+        }
+    };
+
+    const status = statusMap[level];
+
+    // 🟢 details (explanation)
+    const details = [
+        `• ${Math.round(activityRate * 100)}% of repos are active`,
+        `• ${Math.round(staleRate * 100)}% are stale`
+    ];
+
+    // ✨ render
+    container.innerHTML = `
+        <div class="Card dummy ${level}">
+            <h3><i class="${status.icon}"></i> Ecosystem Health</h3>
+            <p class="status">${status.title}</p>
+            <p class="desc">${status.desc}</p>
+
+            <div class="health-details">
+                ${details.map(line => `<p>${line}</p>`).join("")}
+            </div>
+        </div>
     `;
-
-    desc.innerText = getDescription(health.status, trend);
-
-    icon.innerHTML = getHealthIcon(health.status);
-}
-
-function getHealthIcon(status) {
-    if (status === "healthy") return "🟢";
-    if (status === "moderate") return "⚠️";
-    return "🔴";
-}
-
-function getTrendIcon(trend) {
-    if (trend === "up") return `<i class="fa-solid fa-arrow-up"></i>`;
-    if (trend === "down") return `<i class="fa-solid fa-arrow-down"></i>`;
-    return `<i class="fa-solid fa-minus"></i>`;
-}
-
-function getDescription(status, trend) {
-    if (trend === "up") return "Ecosystem is improving";
-    if (trend === "down") return "Ecosystem activity is declining";
-
-    return "Stable ecosystem activity";
 }

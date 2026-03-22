@@ -23,10 +23,7 @@ async function collectRepos() {
         detailedRepos.push(details);
     }
 
-    return {
-        date: new Date().toISOString().split('T')[0],
-        repos: detailedRepos
-    };
+    return detailedRepos;
 }
 
 module.exports = collectRepos;

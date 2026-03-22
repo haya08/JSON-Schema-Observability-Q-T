@@ -17,7 +17,8 @@ async function fetchRepoDetails(fullName) {
         forks: repo.forks_count,
         issues: repo.open_issues_count,
         watchers: repo.watchers_count,
-        updatedAt: repo.updated_at
+        updatedAt: repo.updated_at,
+        pushed_at: repo.pushed_at
     };
 }
 
