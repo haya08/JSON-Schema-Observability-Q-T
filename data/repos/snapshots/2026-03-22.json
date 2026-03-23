@@ -2,244 +2,73 @@
   "date": "2026-03-22",
   "repos": [
     {
-      "name": "fastapi/fastapi",
-      "stars": 96460,
-      "forks": 8897,
-      "issues": 163,
-      "watchers": 96460,
-      "updatedAt": "2026-03-22T00:37:47Z",
-      "pushed_at": "2026-03-20T17:07:26.000Z",
-      "popularityScore": 114254,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "fastapi/full-stack-fastapi-template",
-      "stars": 42192,
-      "forks": 8245,
-      "issues": 15,
-      "watchers": 42192,
-      "updatedAt": "2026-03-21T22:51:43Z",
-      "pushed_at": "2026-03-21T10:14:11.000Z",
-      "popularityScore": 58682,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "pydantic/pydantic",
-      "stars": 27297,
-      "forks": 2503,
-      "issues": 543,
-      "watchers": 27297,
-      "updatedAt": "2026-03-21T22:45:23Z",
-      "pushed_at": "2026-03-18T16:54:44.000Z",
-      "popularityScore": 32303,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "fastapi/sqlmodel",
-      "stars": 17742,
-      "forks": 821,
-      "issues": 116,
-      "watchers": 17742,
-      "updatedAt": "2026-03-21T15:31:58Z",
-      "pushed_at": "2026-03-20T08:54:29.000Z",
-      "popularityScore": 19384,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "rjsf-team/react-jsonschema-form",
-      "stars": 15695,
-      "forks": 2323,
-      "issues": 204,
-      "watchers": 15695,
-      "updatedAt": "2026-03-21T17:25:10Z",
-      "pushed_at": "2026-03-21T10:29:02.000Z",
-      "popularityScore": 20341,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "ajv-validator/ajv",
-      "stars": 14649,
-      "forks": 951,
-      "issues": 322,
-      "watchers": 14649,
-      "updatedAt": "2026-03-21T15:23:44Z",
-      "pushed_at": "2026-02-20T18:05:59.000Z",
-      "popularityScore": 16551,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "glideapps/quicktype",
-      "stars": 13674,
-      "forks": 1177,
-      "issues": 560,
-      "watchers": 13674,
-      "updatedAt": "2026-03-21T20:50:12Z",
-      "pushed_at": "2025-10-27T04:12:39.000Z",
-      "popularityScore": 16028,
-      "activityStatus": "inactive",
-      "health": "high"
-    },
-    {
-      "name": "alibaba/formily",
-      "stars": 12657,
-      "forks": 1599,
-      "issues": 138,
-      "watchers": 12657,
-      "updatedAt": "2026-03-21T14:59:53Z",
-      "pushed_at": "2025-06-21T01:46:14.000Z",
-      "popularityScore": 15855,
+      "name": "fastapi",
+      "url": "https://github.com/fastapi/fastapi",
+      "stargazerCount": 96500,
+      "forkCount": 8911,
+      "issues": {
+        "totalCount": 11
+      },
+      "pullRequests": {
+        "totalCount": 154
+      },
+      "watchers": {
+        "totalCount": 729
+      },
+      "primaryLanguage": {
+        "name": "Python"
+      },
+      "updatedAt": "2026-03-22T22:49:23Z",
+      "pushedAt": "2026-03-20T17:07:26Z",
+      "popularityScore": null,
       "activityStatus": "stale",
       "health": "risk"
     },
     {
-      "name": "alibaba/x-render",
-      "stars": 7842,
-      "forks": 1082,
-      "issues": 51,
-      "watchers": 7842,
-      "updatedAt": "2026-03-18T13:13:09Z",
-      "pushed_at": "2026-02-17T16:51:53.000Z",
-      "popularityScore": 10006,
-      "activityStatus": "inactive",
-      "health": "high"
+      "name": "full-stack-fastapi-template",
+      "url": "https://github.com/fastapi/full-stack-fastapi-template",
+      "stargazerCount": 42213,
+      "forkCount": 8246,
+      "issues": {
+        "totalCount": 0
+      },
+      "pullRequests": {
+        "totalCount": 15
+      },
+      "watchers": {
+        "totalCount": 290
+      },
+      "primaryLanguage": {
+        "name": "TypeScript"
+      },
+      "updatedAt": "2026-03-22T23:31:06Z",
+      "pushedAt": "2026-03-21T10:14:11Z",
+      "popularityScore": null,
+      "activityStatus": "stale",
+      "health": "risk"
     },
     {
-      "name": "joelittlejohn/jsonschema2pojo",
-      "stars": 6368,
-      "forks": 1672,
-      "issues": 236,
-      "watchers": 6368,
-      "updatedAt": "2026-03-20T04:57:32Z",
-      "pushed_at": "2026-03-01T21:37:44.000Z",
-      "popularityScore": 9712,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "microsoft/typespec",
-      "stars": 5639,
-      "forks": 349,
-      "issues": 1083,
-      "watchers": 5639,
-      "updatedAt": "2026-03-21T21:25:09Z",
-      "pushed_at": "2026-03-20T21:54:42.000Z",
-      "popularityScore": 6337,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "samchon/typia",
-      "stars": 5609,
-      "forks": 207,
-      "issues": 53,
-      "watchers": 5609,
-      "updatedAt": "2026-03-20T19:24:43Z",
-      "pushed_at": "2026-03-20T02:06:23.000Z",
-      "popularityScore": 6023,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "python-jsonschema/jsonschema",
-      "stars": 4937,
-      "forks": 610,
-      "issues": 48,
-      "watchers": 4937,
-      "updatedAt": "2026-03-21T14:35:22Z",
-      "pushed_at": "2026-03-16T18:32:20.000Z",
-      "popularityScore": 6157,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "json-schema-org/json-schema-spec",
-      "stars": 4909,
-      "forks": 415,
-      "issues": 64,
-      "watchers": 4909,
-      "updatedAt": "2026-03-21T18:09:55Z",
-      "pushed_at": "2026-03-19T17:25:03.000Z",
-      "popularityScore": 5739,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "json-editor/json-editor",
-      "stars": 4897,
-      "forks": 702,
-      "issues": 293,
-      "watchers": 4897,
-      "updatedAt": "2026-03-18T01:54:55Z",
-      "pushed_at": "2026-03-14T23:01:52.000Z",
-      "popularityScore": 6301,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "yosriady/awesome-api-devtools",
-      "stars": 4008,
-      "forks": 552,
-      "issues": 17,
-      "watchers": 4008,
-      "updatedAt": "2026-03-20T14:10:57Z",
-      "pushed_at": "2025-12-20T03:13:46.000Z",
-      "popularityScore": 5112,
-      "activityStatus": "inactive",
-      "health": "high"
-    },
-    {
-      "name": "danielgtaylor/huma",
-      "stars": 3893,
-      "forks": 250,
-      "issues": 103,
-      "watchers": 3893,
-      "updatedAt": "2026-03-21T23:51:07Z",
-      "pushed_at": "2026-03-18T15:14:29.000Z",
-      "popularityScore": 4393,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "koxudaxi/datamodel-code-generator",
-      "stars": 3822,
-      "forks": 430,
-      "issues": 40,
-      "watchers": 3822,
-      "updatedAt": "2026-03-21T17:39:23Z",
-      "pushed_at": "2026-03-18T08:24:30.000Z",
-      "popularityScore": 4682,
-      "activityStatus": "active",
-      "health": "high"
-    },
-    {
-      "name": "jcrist/msgspec",
-      "stars": 3654,
-      "forks": 140,
-      "issues": 226,
-      "watchers": 3654,
-      "updatedAt": "2026-03-20T10:21:16Z",
-      "pushed_at": "2025-11-27T16:05:27.000Z",
-      "popularityScore": 3934,
-      "activityStatus": "inactive",
-      "health": "high"
-    },
-    {
-      "name": "cyclops-ui/cyclops",
-      "stars": 3318,
-      "forks": 767,
-      "issues": 81,
-      "watchers": 3318,
-      "updatedAt": "2026-03-19T09:21:20Z",
-      "pushed_at": "2026-01-22T09:59:04.000Z",
-      "popularityScore": 4852,
-      "activityStatus": "inactive",
-      "health": "high"
+      "name": "pydantic",
+      "url": "https://github.com/pydantic/pydantic",
+      "stargazerCount": 27308,
+      "forkCount": 2505,
+      "issues": {
+        "totalCount": 512
+      },
+      "pullRequests": {
+        "totalCount": 35
+      },
+      "watchers": {
+        "totalCount": 133
+      },
+      "primaryLanguage": {
+        "name": "Python"
+      },
+      "updatedAt": "2026-03-22T22:37:33Z",
+      "pushedAt": "2026-03-18T16:54:44Z",
+      "popularityScore": null,
+      "activityStatus": "stale",
+      "health": "risk"
     }
   ]
 }

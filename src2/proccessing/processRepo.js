@@ -23,15 +23,12 @@ function classifyActivity(repo) {
 function poccessRepo(repo){
     const popularityScore = repo.stars + repo.forks * 2;
 
-    const pushed_at = new Date(repo.pushed_at);
-
     const activityStatus = classifyActivity(repo);
 
     const health = classifyHealth(popularityScore, activityStatus);
 
     return{
         ...repo,
-        pushed_at,
         popularityScore,
         activityStatus,
         health

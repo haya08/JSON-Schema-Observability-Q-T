@@ -1,7 +1,7 @@
 {
-  "date": "2026-03-22T23:58:41.541Z",
+  "date": "2026-03-23T00:15:46.361Z",
   "totals": {
-    "staleRepos": 3,
+    "staleRepos": 27,
     "npmDownloads": {
       "total": 148356970,
       "packages": [
@@ -22,8 +22,8 @@
   },
   "health": "low",
   "activityDistribution": {
-    "active": 0,
-    "inactive": 0,
-    "stale": 3
+    "active": 47,
+    "inactive": 26,
+    "stale": 27
   }
 }

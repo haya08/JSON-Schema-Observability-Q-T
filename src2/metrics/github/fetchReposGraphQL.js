@@ -1,4 +1,5 @@
 const fetchWithRetry = require("../../utils/githubClient");
+const config = require("../../config/config");
 
 async function fetchReposGraphQL(limit = 50, cursor = null) {
     const after = cursor ? `, after: "${cursor}"` : "";
@@ -61,7 +62,7 @@ async function fetchAllRepos() {
     let hasNextPage = true;
 
     while (hasNextPage) {
-        const res = await fetchReposGraphQL(10, cursor);
+        const res = await fetchReposGraphQL(100, cursor);
 
         allRepos.push(...res.repos);
 
@@ -72,4 +73,47 @@ async function fetchAllRepos() {
     return allRepos;
 }
 
-module.exports = fetchAllRepos;
+async function fetchAllNormalizedRepos() {
+    const allRepos = await fetchAllRepos();
+
+    const normalizedRepos = [];
+
+    for (const repo of allRepos) {
+        normalizedRepos.push({
+            name: repo.name,
+            url: repo.url,
+
+            stars: repo.stargazerCount,
+            forks: repo.forkCount,
+
+            issues: repo.issues?.totalCount || 0,
+            pullRequests: repo.pullRequests?.totalCount || 0,
+            watchers: repo.watchers?.totalCount || 0,
+
+            language: repo.primaryLanguage?.name || "Unknown",
+
+            updatedAt: repo.updatedAt,
+            pushed_at: repo.pushedAt
+        });
+    }
+
+    return normalizedRepos;
+}
+
+async function fetchActiveRepos() {
+    const oneYearAgo = new Date();
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+    const dateStr = oneYearAgo.toISOString().split('T')[0];
+
+    const activeRepos = fetchAllNormalizedRepos().filter(repo => {
+        const pushedAt = new Date(repo.pushedAt);
+        return pushedAt > oneYearAgo;
+    });
+
+    return activeRepos;
+}
+
+module.exports = {
+    fetchAllNormalizedRepos,
+    fetchActiveRepos
+};

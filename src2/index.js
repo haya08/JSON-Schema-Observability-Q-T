@@ -12,37 +12,37 @@ const proccessRepos = require("./proccessing/processRepo");
 const saveEcosystemSnapshot = require("./storage/saveEcosystemSnapshot");
 const saveReposSnapshot = require("./storage/saveReposSnapshot");
 
-const fetchAllRepos = require("./metrics/github/fetchReposGraphQL");
-
 
 async function main(){
 
     //! testing graphQL
 
-    console.log("total repos: ", await fetchAllRepos());
+    // console.log(await fetchAllRepos());
 
 
     //? repos
 
     //! collect data
-    // const repos = await collectRepos();
+    const repos = await collectRepos();
 
     //! process data
-    // const proccessedRepos = await proccessRepos(repos);
+    const proccessedRepos = await proccessRepos(repos);
+
+    console.log(proccessedRepos);
 
     //! save data
-    // await saveReposSnapshot(proccessedRepos);
+    await saveReposSnapshot(proccessedRepos);
 
     //? ecosystem
 
     //! collect data
-    // const ecosystem = await collectEcosystem();
+    const ecosystem = await collectEcosystem();
 
     //! process data
-    // const proccessedEcosystem = await proccessEcosystem(ecosystem, proccessedRepos.repos);
+    const proccessedEcosystem = await proccessEcosystem(ecosystem, proccessedRepos.repos);
 
     //! save data
-    // await saveEcosystemSnapshot(proccessedEcosystem);
+    await saveEcosystemSnapshot(proccessedEcosystem);
 
 
     console.log("Done!");

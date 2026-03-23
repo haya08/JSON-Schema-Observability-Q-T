@@ -1,20 +1,18 @@
 {
-  "collectedAt": "2026-03-22T01:17:59.814Z",
+  "collectedAt": "2026-03-23T00:15:46.366Z",
   "cards": {
-    "totalRepos": 2464,
-    "activeRepos": 1020,
-    "staleRepos": 1,
-    "activityRate": "0.41",
+    "staleRepos": 27,
+    "activityRate": 0,
     "totalDownloads": {
-      "total": 145639329,
+      "total": 148356970,
       "packages": [
         {
           "package": "ajv",
-          "downloads": 129359411
+          "downloads": 131951101
         },
         {
           "package": "json-schema",
-          "downloads": 16279918
+          "downloads": 16405869
         }
       ]
     }
@@ -22,37 +20,43 @@
   "charts": {
     "growth": {
       "labels": [
-        "2026-03-22T01:17:59.807Z"
+        "2026-03-22T23:58:41.541Z",
+        "2026-03-23T00:15:46.361Z"
       ],
       "data": [
+        null,
         null
       ]
     },
     "activity": {
       "labels": [
-        "2026-03-22T01:17:59.807Z"
+        "2026-03-22T23:58:41.541Z",
+        "2026-03-23T00:15:46.361Z"
       ],
       "data": [
-        "0.41"
+        0,
+        0
       ]
     },
     "activeRepos": {
       "labels": [
-        "2026-03-22T01:17:59.807Z"
+        "2026-03-22T23:58:41.541Z",
+        "2026-03-23T00:15:46.361Z"
       ],
       "data": [
-        1020
+        null,
+        null
       ]
     }
   },
   "health": {
-    "status": "moderate",
-    "label": "Moderate"
+    "status": "risk",
+    "label": "At Risk"
   },
   "trend": "stable",
   "activityDistribution": {
-    "active": 14,
-    "inactive": 5,
-    "stale": 1
+    "active": 47,
+    "inactive": 26,
+    "stale": 27
   }
 }
