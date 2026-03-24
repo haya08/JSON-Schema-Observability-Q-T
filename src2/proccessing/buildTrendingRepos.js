@@ -34,18 +34,27 @@ function buildTrendingRepos() {
     const trending = latest.map(repo => {
         const old = prevMap.get(repo.name);
 
-        const growth = old
+        const starsGrowth = old
             ? repo.stars - old.stars
-            : repo.stars; // new repo
+            : repo.stars;
+
+        const forksGrowth = old
+            ? repo.forks - old.forks
+            : repo.forks;
+
+        const growth = starsGrowth + forksGrowth * 2;
+
+        const velocity = (growth / 7).toFixed(0);    
 
         return {
             ...repo,
-            growth
+            growth,
+            velocity
         };
     });
 
     //  sort
-    trending.sort((a, b) => b.growth - a.growth);
+    trending.sort((a, b) => b.velocity - a.velocity);
 
     return trending.slice(0, 10);
 }

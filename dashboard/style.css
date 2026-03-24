@@ -115,23 +115,181 @@ body{
 
 /*? tabs */
 
+/*! tabs */
 .tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
 }
 
-.tabs button {
-    padding: 8px 16px;
-    border-radius: 20px;
-    border: none;
-    background: #eee;
-    cursor: pointer;
+.tab {
+  padding: 8px 16px;
+  border: none;
+  background: #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.tabs .active {
-    background: #5b8def;
-    color: white;
+.tab.active {
+  background: #5b8def;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  margin-top: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/*! trending repos */
+.trending-container {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+#trendingList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* .trending-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 16px;
+  border-radius: 10px;
+
+  transition: all 0.2s ease;
+}
+
+.trending-item:hover {
+  background: #f3f4f6;
+  transform: translateX(4px);
+}
+
+.trending-item:last-child {
+  border-bottom: none;
+}
+
+.trending-item.top-1 {
+  background: #fef3c7;
+}
+
+.trending-item.top-2 {
+  background: #f3f4f6;
+}
+
+.trending-item.top-3 {
+  background: #fef9c3;
+} */
+
+.trending-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 16px;
+  margin-bottom: 10px;
+
+  background: #fff;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+  transition: 0.2s;
+}
+
+.trending-item:hover {
+  transform: translateY(-2px);
+}
+
+.trend-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trending-item:nth-child(1) {
+  border-left: 4px solid gold;
+}
+
+.trending-item:nth-child(2) {
+  border-left: 4px solid silver;
+}
+
+.trending-item:nth-child(3) {
+  border-left: 4px solid #cd7f32;
+}
+
+.rank {
+  font-weight: bold;
+  color: #888;
+  width: 30px;
+}
+
+.repo-info a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #111;
+}
+
+.trend-right {
+  text-align: right;
+}
+
+.growth {
+  font-weight: 600;
+  color: #22c55e;
+}
+
+.velocity {
+  display: block;
+  font-size: 12px;
+  color: #888;
+}
+
+.badge.trend {
+  margin-left: 8px;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #334155;
+  font-weight: 600;
+}
+
+.trending-item:hover {
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.growth {
+  background: #dcfce7;
+  color: #166534;
+
+  padding: 4px 10px;
+  border-radius: 20px;
+
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.growth.down {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.velocity {
+  display: block;
+  font-size: 15px;
+  color: #888;
 }
 
 /*? activityDistributionChart */
@@ -160,7 +318,7 @@ body{
 .table-container {
   margin-top: 40px;
   background: white;
-  padding: 20px;
+  padding: 35px;
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
@@ -364,4 +522,25 @@ tr:hover {
   color: white;
   border-radius: 8px;
   text-decoration: none;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #eee;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #5b8def;
+  color: white;
 }

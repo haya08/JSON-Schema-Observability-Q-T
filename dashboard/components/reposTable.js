@@ -1,9 +1,13 @@
+let currentPage = 1;
+const rowsPerPage = 10;
 let allRepos = [];
+let displayedRepos = [];
 
 export function initReposTable(data) {
     allRepos = data.allRepos;
+    displayedRepos = allRepos;
 
-    render(allRepos);
+    renderPage();
 
     setupControls();
 }
@@ -31,7 +35,60 @@ function updateTable() {
 
     filtered.sort((a, b) => b[sortValue] - a[sortValue]);
 
-    render(filtered.slice(0, 20));
+    displayedRepos = filtered;
+
+    currentPage = 1;
+
+    renderPage();
+}
+
+function getPaginatedData() {
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    return displayedRepos.slice(start, end);
+}
+
+function renderPagination() {
+    const container = document.getElementById("pagination");
+    const totalPages = Math.ceil(displayedRepos.length / rowsPerPage);
+
+    let buttons = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+        buttons += `
+            <button class="${i === currentPage ? 'active' : ''}" 
+                    onclick="goToPage(${i})">
+                ${i}
+            </button>
+
+        `;
+    }
+
+    buttons = `
+        <button onclick="goToPage(${currentPage - 1})" 
+            ${currentPage === 1 ? "disabled" : ""}>Prev</button>
+        ` + buttons + `
+        <button onclick="goToPage(${currentPage + 1})" 
+            ${currentPage === totalPages ? "disabled" : ""}>Next</button>
+        `;
+
+    container.innerHTML = buttons;
+}
+
+window.goToPage = function(page) {
+    const totalPages = Math.ceil(displayedRepos.length / rowsPerPage);
+
+    if (page < 1 || page > totalPages) return;
+
+    currentPage = page;
+    renderPage();
+};
+
+function renderPage() {
+    const paginated = getPaginatedData();
+    render(paginated);
+    renderPagination();
 }
 
 function render(repos) {
@@ -42,7 +99,7 @@ function render(repos) {
         const row = document.createElement("tr");
 
         row.innerHTML = `
-            <td>${index + 1}</td>
+            <td>${(currentPage - 1) * rowsPerPage + index + 1}</td>
             <td>${repo.name}</a></td>
             <td>${formatNumber(repo.stars)}</td>
             <td>${formatNumber(repo.forks)}</td>
@@ -53,13 +110,14 @@ function render(repos) {
 
         row.onclick = () => openRepoPanel(repo);   
         
-        document.getElementById("overlay").onclick = () => {
-            document.getElementById("repoPanel").classList.remove("open");
-            document.getElementById("overlay").classList.add("hidden");
-        };
-
+        
         tbody.appendChild(row);
     });
+
+    document.getElementById("overlay").onclick = () => {
+        document.getElementById("repoPanel").classList.remove("open");
+        document.getElementById("overlay").classList.add("hidden");
+    };
 }
 
 // helpers
@@ -85,71 +143,55 @@ function renderActivity(status) {
     return `<span class="badge stale"><i class="fa-solid fa-circle-xmark"></i> Stale</span>`;
 }
 
-function openRepoPanel(repo) {
+// function openRepoPanel(repo) {
 
-    document.getElementById("overlay").classList.remove("hidden");
-  document.getElementById("repoPanel").classList.add("open");
+//     document.getElementById("overlay").classList.remove("hidden");
+//   document.getElementById("repoPanel").classList.add("open");
 
-  const panel = document.getElementById("repoPanel");
+//   const panel = document.getElementById("repoPanel");
 
-  document.getElementById("repoName").textContent = repo.name;
-
-  document.getElementById("panelBody").innerHTML = `
-    <div class="repo-header">
-      <p class="repo-sub">${repo.language}</p>
-    </div>
-
-    <div class="repo-stats">
-      <span><i class="fa-solid fa-star" style="color: gold"></i> ${repo.stars}</span>
-      <span><i class="fa-solid fa-code-branch" style="color: black"></i> ${repo.forks}</span>
-      <span><i class="fa-solid fa-eye" style="color: black"></i> ${repo.watchers}</span>
-    </div>
-
-    <div class="repo-badges">
-      <span class="badge ${repo.activityStatus}">
-        ${repo.activityStatus}
-      </span>
-
-      <span class="badge ${repo.health}">
-        ${repo.health} health
-      </span>
-    </div>
-
-    <hr/>
-
-    <div class="repo-grid">
-      <div><label>Language</label><p>${repo.language}</p></div>
-      <div><label>Issues</label><p>${repo.issues}</p></div>
-      <div><label>PRs</label><p>${repo.pullRequests}</p></div>
-      <div><label>Last Push</label><p>${repo.pushed_at}</p></div>
-    </div>
-
-    <div class="repo-actions">
-      <a href="${repo.url}" target="_blank">View on GitHub</a>
-    </div>
-  `;
+//   document.getElementById("repoName").textContent = repo.name;
 
 //   document.getElementById("panelBody").innerHTML = `
-//     <p><i class="fa-solid fa-star"></i> ${repo.stars} | <i class="fas fa-code-branch"></i> ${repo.forks}</p>
+//     <div class="repo-header">
+//       <p class="repo-sub">${repo.language}</p>
+//     </div>
 
-//     <p>🟢 ${repo.activityStatus} | ${repo.health}</p>
+//     <div class="repo-stats">
+//       <span><i class="fa-solid fa-star" style="color: gold"></i> ${repo.stars}</span>
+//       <span><i class="fa-solid fa-code-branch" style="color: black"></i> ${repo.forks}</span>
+//       <span><i class="fa-solid fa-eye" style="color: black"></i> ${repo.watchers}</span>
+//     </div>
+
+//     <div class="repo-badges">
+//       <span class="badge ${repo.activityStatus}">
+//         ${repo.activityStatus}
+//       </span>
+
+//       <span class="badge ${repo.health}">
+//         ${repo.health} health
+//       </span>
+//     </div>
 
 //     <hr/>
 
-//     <p><strong>Language:</strong> ${repo.language}</p>
-//     <p><strong>Issues:</strong> ${repo.issues}</p>
-//     <p><strong>PRs:</strong> ${repo.pullRequests}</p>
+//     <div class="repo-grid">
+//       <div><label>Language</label><p>${repo.language}</p></div>
+//       <div><label>Issues</label><p>${repo.issues}</p></div>
+//       <div><label>PRs</label><p>${repo.pullRequests}</p></div>
+//       <div><label>Last Push</label><p>${repo.pushed_at}</p></div>
+//     </div>
 
-//     <p><strong>Last update:</strong> ${repo.updatedAt}</p>
-
-//     <a href="${repo.url}" target="_blank">🔗 View on GitHub</a>
+//     <div class="repo-actions">
+//       <a href="${repo.url}" target="_blank">View on GitHub</a>
+//     </div>
 //   `;
 
-  panel.classList.add("open");
-}
+//   panel.classList.add("open");
+// }
 
-document.getElementById("closePanel").onclick = () => {
-  document.getElementById("repoPanel").classList.remove("open");
-  document.getElementById("repoPanel").classList.remove("open");
-  document.getElementById("overlay").classList.add("hidden");
-};
+// document.getElementById("closePanel").onclick = () => {
+//   document.getElementById("repoPanel").classList.remove("open");
+//   document.getElementById("repoPanel").classList.remove("open");
+//   document.getElementById("overlay").classList.add("hidden");
+// };

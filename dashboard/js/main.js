@@ -25,7 +25,7 @@ async function init() {
     const reposData = await fetchReposData();
 
     initReposTable(reposData);
-    // renderTrendingRepos(reposData);
+    renderTrendingRepos(reposData);
 }
 
 init();
