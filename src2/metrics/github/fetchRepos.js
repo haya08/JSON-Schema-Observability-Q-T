@@ -2,7 +2,7 @@ const fetchWithRetry = require("../../utils/githubClient");
 
 async function fetchReposCount() {
     const query = "topic:json-schema+is:public";
-    const url = `https://api.github.com/search/repositories?q=${query}`;
+    const url = `https://api.github.com/search/repositories?q=${query}&per_page=1000`;
 
     const res = await fetchWithRetry(url);
 

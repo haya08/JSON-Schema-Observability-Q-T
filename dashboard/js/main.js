@@ -18,14 +18,14 @@ async function init() {
 
     renderOverview(EcosystemData);
     renderActivityDistribution(EcosystemData);
-    renderHealthCard(EcosystemData);
+    // renderHealthCard(EcosystemData);
     renderGrowthChart(EcosystemData);
-    renderActivityChart(EcosystemData);
+    // renderActivityChart(EcosystemData);
 
     const reposData = await fetchReposData();
 
     initReposTable(reposData);
-    renderTrendingRepos(reposData);
+    // renderTrendingRepos(reposData);
 }
 
 init();

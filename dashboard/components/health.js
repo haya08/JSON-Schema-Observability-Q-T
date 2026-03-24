@@ -2,7 +2,7 @@ export function renderHealthCard(data) {
     const container = document.getElementById("health-card");
 
     const activityRate = data.cards.activityRate;
-    const staleRate = (data.cards.staleRepos / data.cards.totalRepos);
+    const staleRate = data.cards.staleRate;
 
     console.log(staleRate);
 

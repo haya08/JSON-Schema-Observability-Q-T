@@ -2,18 +2,19 @@
 // const fetchActiveRepos = require("../metrics/github/fetchActiveRepos");
 const {fetchDownloadsMultiplePackages} = require("../metrics/npm/fetchDownloads");
 const config = require("../config/config");
-const {fetchAllNormalizedRepos, fetchActiveRepos} = require("../metrics/github/fetchReposGraphQL");
+// const {fetchAllNormalizedRepos, fetchActiveRepos} = require("../metrics/github/fetchReposGraphQL");
 
-async function collectEcosystem() {
+async function collectEcosystem(totalReposCount, activeReposCount, _npmDownloads) {
+
     try {
         const [
             totalRepos,
             activeRepos,
             npmDownloads
         ] = await Promise.all([
-            fetchAllNormalizedRepos.length || 0,
-            fetchActiveRepos.length || 0,
-            fetchDownloadsMultiplePackages(config.trackedPackages)
+            totalReposCount,
+            activeReposCount,
+            _npmDownloads
         ]);
 
         return {
@@ -21,7 +22,7 @@ async function collectEcosystem() {
             sources: ["github", "npm"],
             totalRepos,
             activeRepos,
-            npmDownloads
+            npmDownloads    
         };
 
     } catch (err) {

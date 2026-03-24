@@ -43,13 +43,20 @@ function render(repos) {
 
         row.innerHTML = `
             <td>${index + 1}</td>
-            <td><a href="https://github.com/${repo.name}" target="_blank">${repo.name}</a></td>
+            <td>${repo.name}</a></td>
             <td>${formatNumber(repo.stars)}</td>
             <td>${formatNumber(repo.forks)}</td>
             <td>${formatNumber(repo.score)}</td>
             <td>${renderHealth(repo.health)}</td>
             <td>${renderActivity(repo.activityStatus)}</td>
         `;
+
+        row.onclick = () => openRepoPanel(repo);   
+        
+        document.getElementById("overlay").onclick = () => {
+            document.getElementById("repoPanel").classList.remove("open");
+            document.getElementById("overlay").classList.add("hidden");
+        };
 
         tbody.appendChild(row);
     });
@@ -77,3 +84,72 @@ function renderActivity(status) {
     }
     return `<span class="badge stale"><i class="fa-solid fa-circle-xmark"></i> Stale</span>`;
 }
+
+function openRepoPanel(repo) {
+
+    document.getElementById("overlay").classList.remove("hidden");
+  document.getElementById("repoPanel").classList.add("open");
+
+  const panel = document.getElementById("repoPanel");
+
+  document.getElementById("repoName").textContent = repo.name;
+
+  document.getElementById("panelBody").innerHTML = `
+    <div class="repo-header">
+      <p class="repo-sub">${repo.language}</p>
+    </div>
+
+    <div class="repo-stats">
+      <span><i class="fa-solid fa-star" style="color: gold"></i> ${repo.stars}</span>
+      <span><i class="fa-solid fa-code-branch" style="color: black"></i> ${repo.forks}</span>
+      <span><i class="fa-solid fa-eye" style="color: black"></i> ${repo.watchers}</span>
+    </div>
+
+    <div class="repo-badges">
+      <span class="badge ${repo.activityStatus}">
+        ${repo.activityStatus}
+      </span>
+
+      <span class="badge ${repo.health}">
+        ${repo.health} health
+      </span>
+    </div>
+
+    <hr/>
+
+    <div class="repo-grid">
+      <div><label>Language</label><p>${repo.language}</p></div>
+      <div><label>Issues</label><p>${repo.issues}</p></div>
+      <div><label>PRs</label><p>${repo.pullRequests}</p></div>
+      <div><label>Last Push</label><p>${repo.pushed_at}</p></div>
+    </div>
+
+    <div class="repo-actions">
+      <a href="${repo.url}" target="_blank">View on GitHub</a>
+    </div>
+  `;
+
+//   document.getElementById("panelBody").innerHTML = `
+//     <p><i class="fa-solid fa-star"></i> ${repo.stars} | <i class="fas fa-code-branch"></i> ${repo.forks}</p>
+
+//     <p>🟢 ${repo.activityStatus} | ${repo.health}</p>
+
+//     <hr/>
+
+//     <p><strong>Language:</strong> ${repo.language}</p>
+//     <p><strong>Issues:</strong> ${repo.issues}</p>
+//     <p><strong>PRs:</strong> ${repo.pullRequests}</p>
+
+//     <p><strong>Last update:</strong> ${repo.updatedAt}</p>
+
+//     <a href="${repo.url}" target="_blank">🔗 View on GitHub</a>
+//   `;
+
+  panel.classList.add("open");
+}
+
+document.getElementById("closePanel").onclick = () => {
+  document.getElementById("repoPanel").classList.remove("open");
+  document.getElementById("repoPanel").classList.remove("open");
+  document.getElementById("overlay").classList.add("hidden");
+};

@@ -68,9 +68,10 @@ function buildLatestEcosystem() {
 
     const cards = {
         totalRepos: latest.totals.reposCount,
-        activeRepos: latest.totals.activeRepos,
-        staleRepos: latest.totals.staleRepos,
+        // activeRepos: latest.totals.activeRepos,
+        // staleRepos: latest.totals.staleRepos,
         activityRate: latest.metrics.activityRate,
+        staleRate: latest.metrics.staleRate,
         totalDownloads: latest.totals.npmDownloads
     };
 

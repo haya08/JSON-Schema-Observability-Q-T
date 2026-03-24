@@ -56,13 +56,18 @@ async function fetchReposGraphQL(limit = 50, cursor = null) {
     }
 }
 
-async function fetchAllRepos() {
+async function fetchAllRepos(limit = 100) {
     let allRepos = [];
     let cursor = null;
     let hasNextPage = true;
+    let totalCount = 0;
 
-    while (hasNextPage) {
+    while (hasNextPage && allRepos.length < limit) {
         const res = await fetchReposGraphQL(100, cursor);
+
+        if (!totalCount) {
+            totalCount = res.repositoryCount;
+        }
 
         allRepos.push(...res.repos);
 
@@ -70,48 +75,54 @@ async function fetchAllRepos() {
         hasNextPage = res.hasNextPage;
     }
 
-    return allRepos;
+    return {
+        totalCount,
+        repos: allRepos.slice(0, limit)
+    };
 }
 
 async function fetchAllNormalizedRepos() {
-    const allRepos = await fetchAllRepos();
+    const { totalCount, repos } = await fetchAllRepos();
 
-    const normalizedRepos = [];
+    const normalizedRepos = repos.map(repo => ({
+        name: repo.name,
+        url: repo.url,
 
-    for (const repo of allRepos) {
-        normalizedRepos.push({
-            name: repo.name,
-            url: repo.url,
+        stars: repo.stargazerCount,
+        forks: repo.forkCount,
 
-            stars: repo.stargazerCount,
-            forks: repo.forkCount,
+        issues: repo.issues?.totalCount || 0,
+        pullRequests: repo.pullRequests?.totalCount || 0,
+        watchers: repo.watchers?.totalCount || 0,
 
-            issues: repo.issues?.totalCount || 0,
-            pullRequests: repo.pullRequests?.totalCount || 0,
-            watchers: repo.watchers?.totalCount || 0,
+        language: repo.primaryLanguage?.name || "Unknown",
 
-            language: repo.primaryLanguage?.name || "Unknown",
+        updatedAt: repo.updatedAt,
+        pushed_at: repo.pushedAt
+    }));
 
-            updatedAt: repo.updatedAt,
-            pushed_at: repo.pushedAt
-        });
-    }
-
-    return normalizedRepos;
+    return {
+        totalCount,
+        repos: normalizedRepos
+    };
 }
 
 async function fetchActiveRepos() {
     const oneYearAgo = new Date();
     oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-    const dateStr = oneYearAgo.toISOString().split('T')[0];
 
-    const activeRepos = fetchAllNormalizedRepos().filter(repo => {
-        const pushedAt = new Date(repo.pushedAt);
+    const data = await fetchAllNormalizedRepos();
+
+    const repos = data.repos;
+
+    return repos.filter(repo => {
+        const pushedAt = new Date(repo.pushed_at);
         return pushedAt > oneYearAgo;
     });
-
-    return activeRepos;
 }
+
+// const allRepos = fetchAllNormalizedRepos();
+// const activeRepos = fetchActiveRepos(allRepos);
 
 module.exports = {
     fetchAllNormalizedRepos,

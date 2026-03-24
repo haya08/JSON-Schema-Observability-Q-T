@@ -1,0 +1,426 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 20px;
+}
+
+body.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+nav.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+  
+}
+
+body.dark input,
+body.dark select {
+  background: #1e293b;
+  color: white;
+  border: 1px solid #475569;
+}
+
+body.dark .Card,
+body.dark .chart-container,
+body.dark .table-container,
+body.dark .table-controls {
+  background: #1e293b;
+  box-shadow: none;
+}
+
+/*! activity badges */
+
+.badge.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge.inactive {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.badge.stale {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+#themeToggle {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #0000007d;
+  text-decoration: none;
+}
+
+/*! health*/
+
+/* .health-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-top: 40px;
+  padding: 20px;
+
+  border-radius: 16px;
+
+  font-weight: 500;
+}
+
+.health-card {
+  border-left: 6px solid currentColor;
+}
+
+.health-card {
+  transition: transform 0.2s;
+}
+
+.health-card:hover {
+  transform: translateY(-3px);
+}
+
+.health-card i {
+  margin-left: 6px;
+} */
+
+/* icon */
+/* .health-icon {
+  font-size: 24px;
+} */
+
+/* title */
+/* #healthTitle {
+  margin: 0;
+  font-size: 20px;
+} */
+
+/* description */
+/* #healthDesc {
+  margin: 4px 0 0;
+  font-size: 14px;
+  opacity: 0.8;
+} */
+
+/* .health-card.healthy {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.health-card.moderate {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.health-card.risk {
+  background: #fee2e2;
+  color: #991b1b;
+} */
+
+/*! cards */
+
+.overview .Card p{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.Card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  border-style: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.Card h3, h2 {
+  margin-bottom: 10px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Card i {
+  color: #4f46e5;
+}
+
+.Card p {
+  font-size: 15px;
+  font-weight: bold;
+  color: #666;
+}
+
+.Card:hover {
+  transform: translateY(-5px);
+}
+
+.Card #activityDistributionChart {
+  max-width: 250px;
+  max-height: 250px;
+  margin: 0 auto;
+}
+
+.dummy {
+  height: 400px;
+  margin: 0 auto;
+}
+
+.Card.healthy {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.Card.moderate {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.health-card.at_risk {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.health-details {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: left;
+  opacity: 0.8;
+}
+
+.Card:nth-child(1) { border-left: 5px solid #4f46e5; }
+.Card:nth-child(2) { border-left: 5px solid #16a34a; }
+.Card:nth-child(3) { border-left: 5px solid #f59e0b; }
+.Card:nth-child(4) { border-left: 5px solid #db2777; }
+
+/*! charts */
+
+/* .charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
+} */
+
+/* .chart-container {
+  margin-top: 40px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+} */
+
+/* .chart-container h2 {
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+} */
+
+/* @media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+} */
+
+/*! tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.tab {
+  padding: 8px 16px;
+  border: none;
+  background: #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #4f46e5;
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  margin-top: 20px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/*! table */
+
+.table-container {
+  margin-top: 40px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+body.dark th {
+  background: #334155;
+  color: #cbd5f5;
+}
+
+body.dark tr {
+  border-bottom: 1px solid #334155;
+}
+
+body.dark tr:hover {
+  background: #1e293b;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: #f3f4f6;
+  color: #555;
+}
+
+tr {
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+/*! trending repos */
+.trending-container {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+#trendingList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trending-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 16px;
+  border-radius: 10px;
+
+  transition: all 0.2s ease;
+}
+
+.trending-item:hover {
+  background: #f3f4f6;
+  transform: translateX(4px);
+}
+
+.trending-item:last-child {
+  border-bottom: none;
+}
+
+.trending-item.top-1 {
+  background: #fef3c7;
+}
+
+.trending-item.top-2 {
+  background: #f3f4f6;
+}
+
+.trending-item.top-3 {
+  background: #fef9c3;
+}
+
+.growth {
+  background: #dcfce7;
+  color: #166534;
+
+  padding: 4px 10px;
+  border-radius: 20px;
+
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.growth.down {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+#searchInput {
+  padding: 8px;
+  width: 60%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+#sortSelect {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge.high {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge.medium {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.badge.low {
+  background: #fee2e2;
+  color: #991b1b;
+} 
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+

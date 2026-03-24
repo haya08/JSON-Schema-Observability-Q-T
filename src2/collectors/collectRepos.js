@@ -1,11 +1,11 @@
 const fetchWithRetry = require("../utils/githubClient");
 // const fetchRepoDetails = require("../metrics/github/fetchRepoDetails");
-const {fetchAllNormalizedRepos} = require("../metrics/github/fetchReposGraphQL");
+// const {fetchAllNormalizedRepos} = require("../metrics/github/fetchReposGraphQL");
 const config = require("../config/config");
 
-async function collectRepos() {
+async function collectRepos(repos) {
 
-    const repos = await fetchAllNormalizedRepos();
+    // const repos = await fetchAllNormalizedRepos();
     return repos;
 
 

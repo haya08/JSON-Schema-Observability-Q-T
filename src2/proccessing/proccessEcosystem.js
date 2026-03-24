@@ -1,3 +1,5 @@
+const config = require("../config/config");
+
 function getActivityDistribution(repos) {
     const stats = {
         active: 0,
@@ -17,6 +19,13 @@ function getActivityDistribution(repos) {
 function calActivityRate(activeRepos, totalRepos){
     if(totalRepos){
         return (activeRepos / totalRepos).toFixed(2);
+    }
+    return 0;
+}
+
+function calStaleRate(staleRepos, totalRepos){
+    if(totalRepos){
+        return (staleRepos / totalRepos).toFixed(2);
     }
     return 0;
 }
@@ -41,8 +50,9 @@ function classifyHealth(activityRate){
 
 function ecosystemSnapshot (data, proccededRepos, prevSnapshot = null) {
     const date = data.collectedAt;
-    const totalRepos = data.totalRepos.count;
-    const activeRepos = data.activeRepos.count;
+    const totalRepos = data.totalRepos;
+    // const activeRepos = data.activeRepos;
+    const activeRepos = proccededRepos.filter(r => r.activityStatus === "active").length;
     const staleRepos = proccededRepos.filter(r => r.activityStatus === "stale").length;
 
     //! get the pkg name and downloads
@@ -50,10 +60,12 @@ function ecosystemSnapshot (data, proccededRepos, prevSnapshot = null) {
     const totalNpmDownloads = npmDownloads.reduce((total, {downloads}) => total + downloads, 0);
 
     //! cal activity rate
-    const activityRate = calActivityRate(activeRepos, totalRepos); 
+    const activityRate = calActivityRate(activeRepos, config.topReposLimit); 
+
+    const staleRate = calStaleRate(staleRepos, config.topReposLimit);
 
     //! cal growth rate
-    const growthRate = calGrowthRate(prevSnapshot, totalRepos);
+    const growthRate = calGrowthRate(prevSnapshot, config.topReposLimit);
 
     const activityDistribution = getActivityDistribution(proccededRepos);
 
@@ -61,16 +73,15 @@ function ecosystemSnapshot (data, proccededRepos, prevSnapshot = null) {
         date: date,
         totals:{
             reposCount: totalRepos,
-            activeRepos: activeRepos,
-            staleRepos: staleRepos,
             npmDownloads: {
                 total: totalNpmDownloads,
                 packages: npmDownloads
             },
         },
         metrics:{
-            activityRate: activityRate,
-            growthRate: growthRate
+            activityRate,
+            staleRate,
+            growthRate
         },
         health: classifyHealth(activityRate),
         activityDistribution

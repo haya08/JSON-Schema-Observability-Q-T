@@ -1,26 +1,27 @@
 {
-  "date": "2026-03-23T00:15:46.361Z",
+  "date": "2026-03-23T23:03:25.814Z",
   "totals": {
-    "staleRepos": 27,
+    "reposCount": 2476,
     "npmDownloads": {
-      "total": 148356970,
+      "total": 151712167,
       "packages": [
         {
           "package": "ajv",
-          "downloads": 131951101
+          "downloads": 134892093
         },
         {
           "package": "json-schema",
-          "downloads": 16405869
+          "downloads": 16820074
         }
       ]
     }
   },
   "metrics": {
-    "activityRate": 0,
+    "activityRate": "0.47",
+    "staleRate": "0.27",
     "growthRate": 0
   },
-  "health": "low",
+  "health": "moderate",
   "activityDistribution": {
     "active": 47,
     "inactive": 26,
