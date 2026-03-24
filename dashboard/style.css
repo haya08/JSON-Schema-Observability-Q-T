@@ -3,6 +3,81 @@ body{
     background-color: #f2edf3;
 }
 
+/*? navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 24px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-center {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-link {
+  border: none;
+  background: transparent;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+
+  transition: 0.2s;
+}
+
+.nav-link:hover {
+  background: #f1f5f9;
+}
+
+.nav-link.active {
+  background: #5b8def;
+  color: white;
+}
+
+.nav-right input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+.navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.8);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #5b8def;
+  transition: 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
 /* Overview */
 .overview {
     display: grid;
@@ -144,10 +219,14 @@ body{
   display: block;
 }
 
+.hidden {
+  display: none;
+}
+
 /*! trending repos */
 .trending-container {
   background: white;
-  padding: 20px;
+  padding: 35px;
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
@@ -316,7 +395,6 @@ body{
 /*? table */
 
 .table-container {
-  margin-top: 40px;
   background: white;
   padding: 35px;
   border-radius: 16px;
@@ -543,4 +621,58 @@ tr:hover {
 .pagination button.active {
   background: #5b8def;
   color: white;
+}
+
+/*? footer */
+
+.footer {
+  background: #f8fafc;
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left h4 {
+  margin: 0;
+}
+
+.footer-left p {
+  font-size: 13px;
+  color: #777;
+}
+
+.footer-center p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.footer-right a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #5b8def;
+  font-size: 14px;
+}
+
+.footer-right a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 12px;
+  color: #888;
+}
+
+.footer-content {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
 }

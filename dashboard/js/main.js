@@ -9,9 +9,11 @@ import { renderHealthCard } from "../components/health.js";
 import { renderTrendingRepos } from "../components/trendingRepos.js";
 import { initTabs } from "../components/top-trending-tabs.js";
 import {renderActivityDistribution} from "../components/activityDistributionChart.js";
+import { switchTabs } from "./utils.js";
 
 async function init() {
     // initTheme();
+    switchTabs();
     initTabs();
 
     const EcosystemData = await fetchEcosystemData();
@@ -26,6 +28,9 @@ async function init() {
 
     initReposTable(reposData);
     renderTrendingRepos(reposData);
+
+    document.getElementById("lastUpdated").textContent =
+    "Last updated: " + EcosystemData.collectedAt;
 }
 
 init();

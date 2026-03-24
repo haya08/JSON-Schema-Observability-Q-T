@@ -9,12 +9,29 @@
     <title>Document</title>
 </head>
 <body>
+    <nav class="navbar mb-4">
+            <div class="container-fluid">
+                <div class="nav-left">
+                    <h2 class="logo">JSON Schema Observatory</h2>
+                </div>
+    
+                <div class="nav-center">
+                    <a href="#overviewSection" class="nav-link active">Overview</a>
+                    <a href="#topTab" class="nav-link">Top/🔥Trending Repos</a>
+                    <!-- <a href="trendingTab" class="nav-link">🔥 Trending</a> -->
+                </div>
+    
+                <div class="nav-right">
+                    <input type="text" placeholder="Search..." />
+                </div>
+            </div>
+        </nav>
     <div class="container">
         <!--? navbar -->
-        <section class="navBar mb-4">
+        <!-- <section class="navBar mb-4">
             <nav class="navbar navbar-expand-lg navbar-light style="background-color: #e3f2fd;"">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
+                    <a class="navbar-brand" href="#"><img src="./images/13019229.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -41,20 +58,16 @@
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                    <!-- <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form> -->
                     <button id="themeToggle">
                         <i class="fa-solid fa-moon"></i> Dark Mode
                     </button>  
                     </div>
                 </div>
             </nav>
-        </section>
+        </section> -->
 
         <!--? overview -->
-        <div class="overview">
+        <div id="overviewSection" class="overview">
             <div class="card card-purple">
                 <div class="card-title">Total Repos</div>
                 <div class="card-value" id="totalRepos"></div>
@@ -82,7 +95,7 @@
         </div>
 
         <!--? growth section -->
-        <div class="section">
+        <div id="growthSection" class="section">
             <div class="card" style="background:#fff; color:#333;">
                 <h3 style="">Ecosystem Growth</h3>
                 <div>
@@ -126,7 +139,7 @@
                 <button class="tab" data-tab="trending">🔥 Trending</button>
             </div>
 
-            <!-- <div id="reposTable"></div> -->
+            <!--? top -->
             <div id="topTab" class="tab-content active">
                 <div class="table-container">
                     <h2 style="font-size: 27px;">Top Repositories</h2>
@@ -161,10 +174,10 @@
             </div>
 
             <!--? Trending -->
-            <div id="trendingTab" class="tab-content">
+            <div id="trendingTab" class="tab-content hidden">
                 <div class="trending-container">
-                    <h2>
-                        <i class="fa-solid fa-fire"></i>
+                    <h2 style="font-size: 27px;" class="mb-4">
+                        🔥
                         Trending Repositories
                     </h2>   
 
@@ -189,8 +202,34 @@
         </div>
         
         <div id="overlay" class="overlay hidden"></div>
+
     </div>
 
+            <footer class="footer">
+            <div class="footer-content">
+
+                <div class="footer-left">
+                <h4>JSON Schema Observatory</h4>
+                <p>Monitoring the ecosystem health & growth</p>
+                </div>
+
+                <div class="footer-center">
+                <p id="lastUpdated">Last updated: --</p>
+                <p>Powered by GitHub API</p>
+                </div>
+
+                <div class="footer-right">
+                <a target="_blank" href="https://github.com/haya08/JSON-Schema-Observability-Q-T"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="#">Docs</a>
+                <a href="#">About</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 All rights reserved
+            </div>
+        </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

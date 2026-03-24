@@ -143,55 +143,55 @@ function renderActivity(status) {
     return `<span class="badge stale"><i class="fa-solid fa-circle-xmark"></i> Stale</span>`;
 }
 
-// function openRepoPanel(repo) {
+function openRepoPanel(repo) {
 
-//     document.getElementById("overlay").classList.remove("hidden");
-//   document.getElementById("repoPanel").classList.add("open");
+    document.getElementById("overlay").classList.remove("hidden");
+  document.getElementById("repoPanel").classList.add("open");
 
-//   const panel = document.getElementById("repoPanel");
+  const panel = document.getElementById("repoPanel");
 
-//   document.getElementById("repoName").textContent = repo.name;
+  document.getElementById("repoName").textContent = repo.name;
 
-//   document.getElementById("panelBody").innerHTML = `
-//     <div class="repo-header">
-//       <p class="repo-sub">${repo.language}</p>
-//     </div>
+  document.getElementById("panelBody").innerHTML = `
+    <div class="repo-header">
+      <p class="repo-sub">${repo.language}</p>
+    </div>
 
-//     <div class="repo-stats">
-//       <span><i class="fa-solid fa-star" style="color: gold"></i> ${repo.stars}</span>
-//       <span><i class="fa-solid fa-code-branch" style="color: black"></i> ${repo.forks}</span>
-//       <span><i class="fa-solid fa-eye" style="color: black"></i> ${repo.watchers}</span>
-//     </div>
+    <div class="repo-stats">
+      <span><i class="fa-solid fa-star" style="color: gold"></i> ${repo.stars}</span>
+      <span><i class="fa-solid fa-code-branch" style="color: black"></i> ${repo.forks}</span>
+      <span><i class="fa-solid fa-eye" style="color: black"></i> ${repo.watchers}</span>
+    </div>
 
-//     <div class="repo-badges">
-//       <span class="badge ${repo.activityStatus}">
-//         ${repo.activityStatus}
-//       </span>
+    <div class="repo-badges">
+      <span class="badge ${repo.activityStatus}">
+        ${repo.activityStatus}
+      </span>
 
-//       <span class="badge ${repo.health}">
-//         ${repo.health} health
-//       </span>
-//     </div>
+      <span class="badge ${repo.health}">
+        ${repo.health} health
+      </span>
+    </div>
 
-//     <hr/>
+    <hr/>
 
-//     <div class="repo-grid">
-//       <div><label>Language</label><p>${repo.language}</p></div>
-//       <div><label>Issues</label><p>${repo.issues}</p></div>
-//       <div><label>PRs</label><p>${repo.pullRequests}</p></div>
-//       <div><label>Last Push</label><p>${repo.pushed_at}</p></div>
-//     </div>
+    <div class="repo-grid">
+      <div><label>Language</label><p>${repo.language}</p></div>
+      <div><label>Issues</label><p>${repo.issues}</p></div>
+      <div><label>PRs</label><p>${repo.pullRequests}</p></div>
+      <div><label>Last Push</label><p>${repo.pushed_at}</p></div>
+    </div>
 
-//     <div class="repo-actions">
-//       <a href="${repo.url}" target="_blank">View on GitHub</a>
-//     </div>
-//   `;
+    <div class="repo-actions">
+      <a href="${repo.url}" target="_blank">View on GitHub</a>
+    </div>
+  `;
 
-//   panel.classList.add("open");
-// }
+  panel.classList.add("open");
+}
 
-// document.getElementById("closePanel").onclick = () => {
-//   document.getElementById("repoPanel").classList.remove("open");
-//   document.getElementById("repoPanel").classList.remove("open");
-//   document.getElementById("overlay").classList.add("hidden");
-// };
+document.getElementById("closePanel").onclick = () => {
+  document.getElementById("repoPanel").classList.remove("open");
+  document.getElementById("repoPanel").classList.remove("open");
+  document.getElementById("overlay").classList.add("hidden");
+};
