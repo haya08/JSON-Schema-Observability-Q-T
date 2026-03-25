@@ -1,4 +1,7 @@
 const config = require("../config/config");
+const path = require("path");
+const fs = require("fs");
+
 
 function getActivityDistribution(repos) {
     const stats = {
@@ -46,10 +49,26 @@ function classifyHealth(activityRate){
     return "low";
 }
 
+function readSnapshots(folderPath) {
+    const files = fs.readdirSync(folderPath).sort();
 
+    return files.map(file => {
+        const filePath = path.join(folderPath, file);
+        return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    });
+}
 
-function ecosystemSnapshot (data, proccededRepos, prevSnapshot = null) {
-    const date = data.collectedAt;
+function getPrevSnapshot(){
+    const ecosystemPath = path.join(__dirname, "../../data/ecosystem/snapshots");
+    const snapshots = readSnapshots(ecosystemPath);
+    if(snapshots.length > 1){
+        return snapshots[snapshots.length - 2];
+    }
+    return null;
+}
+
+function ecosystemSnapshot (data, proccededRepos) {
+    const date = new Date(data.collectedAt).toISOString().split('T')[0];
     const totalRepos = data.totalRepos;
     // const activeRepos = data.activeRepos;
     const activeRepos = proccededRepos.filter(r => r.activityStatus === "active").length;
@@ -65,7 +84,11 @@ function ecosystemSnapshot (data, proccededRepos, prevSnapshot = null) {
     const staleRate = calStaleRate(staleRepos, config.topReposLimit);
 
     //! cal growth rate
-    const growthRate = calGrowthRate(prevSnapshot, config.topReposLimit);
+    const prevSnapshot = getPrevSnapshot();
+    const growthRate = 0;
+    if(prevSnapshot){
+        growthRate = calGrowthRate(prevSnapshot.totals.reposCount, totalRepos);
+    }
 
     const activityDistribution = getActivityDistribution(proccededRepos);
 

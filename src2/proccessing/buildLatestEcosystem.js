@@ -76,7 +76,7 @@ function buildLatestEcosystem() {
     };
 
     const charts = {
-        growth: buildChartData(snapshots, "totals.repos"),
+        growth: buildChartData(snapshots, "metrics.growthRate"),
         activity: buildChartData(snapshots, "metrics.activityRate"),
         activeRepos: buildChartData(snapshots, "totals.activeRepos")
     };
