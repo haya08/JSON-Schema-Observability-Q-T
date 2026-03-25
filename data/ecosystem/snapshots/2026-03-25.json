@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-24T23:58:38.840Z",
+  "date": "2026-03-25T00:05:07.681Z",
   "totals": {
     "reposCount": 2492,
     "npmDownloads": {
@@ -17,14 +17,14 @@
     }
   },
   "metrics": {
-    "activityRate": "0.00",
-    "staleRate": "0.00",
+    "activityRate": "0.49",
+    "staleRate": "0.28",
     "growthRate": 0
   },
-  "health": "low",
+  "health": "moderate",
   "activityDistribution": {
-    "active": 0,
-    "inactive": 0,
-    "stale": 0
+    "active": 49,
+    "inactive": 23,
+    "stale": 28
   }
 }

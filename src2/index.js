@@ -84,6 +84,8 @@ async function main(){
     //! process data
     const proccessedRepos = await proccessRepos(collectedRepos);
 
+    // console.log(proccessedRepos.date);
+
     //! save data
     await saveReposSnapshot(proccessedRepos);
 
