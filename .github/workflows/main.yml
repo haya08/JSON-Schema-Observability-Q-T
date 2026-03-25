@@ -35,5 +35,5 @@ jobs:
           git config --global user.name "Haya Ahmed"
           git config --global user.email "haya.ahm.08@gmail.com"
           git add output/metrics.json
-          git commit -m "Update weekly metrics" || echo "No changes"
+          git commit -m "Update weekly snapshots" || echo "No changes"
           git push
