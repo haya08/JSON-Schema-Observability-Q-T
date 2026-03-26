@@ -1,7 +1,7 @@
 {
-  "collectedAt": "2026-03-26T20:14:40.385Z",
+  "collectedAt": "2026-03-26T23:42:28.873Z",
   "cards": {
-    "totalRepos": 2499,
+    "totalRepos": 2500,
     "activityRate": "0.49",
     "staleRate": "0.28",
     "totalDownloads": {
@@ -21,31 +21,25 @@
   "charts": {
     "growth": {
       "labels": [
-        "2026-03-25",
         "2026-03-26"
       ],
       "data": [
-        0,
         0
       ]
     },
     "activity": {
       "labels": [
-        "2026-03-25",
         "2026-03-26"
       ],
       "data": [
-        "0.49",
         "0.49"
       ]
     },
     "activeRepos": {
       "labels": [
-        "2026-03-25",
         "2026-03-26"
       ],
       "data": [
-        null,
         null
       ]
     }

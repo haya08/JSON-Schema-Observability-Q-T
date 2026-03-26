@@ -3,6 +3,11 @@ const path = require("path");
 const buildLatestRepos = require("../proccessing/buildLatestRepos");
 
 function saveReposSnapshot(data){
+    // const fontEndPath = path.join(__dirname, "../../frontend");
+    // if(!fs.existsSync(fontEndPath)){
+    //     fs.mkdirSync(fontEndPath);
+    // }
+
     const dataPath = path.join(__dirname, "../../data");
     if(!fs.existsSync(dataPath)){
         fs.mkdirSync(dataPath);
@@ -18,7 +23,9 @@ function saveReposSnapshot(data){
         fs.mkdirSync(snapshotsPath);
     }
 
-    const date = new Date().toISOString().split('T')[0];
+    const date = new Date().toLocaleDateString('en-CA', {
+        timeZone: 'Africa/Cairo'
+    });
 
     const latestFilePath = path.join(reposPath, 'latest.json');
     fs.writeFileSync(latestFilePath, JSON.stringify(data, null, 2), { recursive: true });

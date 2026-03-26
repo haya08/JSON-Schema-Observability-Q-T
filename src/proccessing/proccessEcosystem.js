@@ -35,7 +35,7 @@ function calStaleRate(staleRepos, totalRepos){
 
 function calGrowthRate(prevSnapshot, totalRepos){
     if(prevSnapshot){
-        const prevTotalRepos = prevSnapshot;
+        const prevTotalRepos = prevSnapshot.totals.reposCount;
         if(prevTotalRepos){
             return ((totalRepos - prevTotalRepos) / prevTotalRepos).toFixed(2);
         }
@@ -85,10 +85,7 @@ function ecosystemSnapshot (data, proccededRepos) {
 
     //! cal growth rate
     const prevSnapshot = getPrevSnapshot();
-    const growthRate = 0;
-    if(prevSnapshot){
-        growthRate = calGrowthRate(prevSnapshot.totals.reposCount, totalRepos);
-    }
+    const growthRate = calGrowthRate(prevSnapshot, totalRepos);
 
     const activityDistribution = getActivityDistribution(proccededRepos);
 

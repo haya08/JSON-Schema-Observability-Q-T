@@ -1,17 +1,17 @@
 {
-  "date": "2026-03-25",
+  "date": "2026-03-26",
   "totals": {
-    "reposCount": 2492,
+    "reposCount": 2500,
     "npmDownloads": {
-      "total": 315165438,
+      "total": 308486139,
       "packages": [
         {
           "package": "ajv",
-          "downloads": 280106752
+          "downloads": 273373674
         },
         {
           "package": "json-schema",
-          "downloads": 35058686
+          "downloads": 35112465
         }
       ]
     }

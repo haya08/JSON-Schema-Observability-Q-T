@@ -1,5 +1,6 @@
 export async function fetchEcosystemData() {
     const res = await fetch("../../data/ecosystem/latest.json");
+    console.log(res);
     return res.json();
 }
 
