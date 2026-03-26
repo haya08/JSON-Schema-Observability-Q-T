@@ -1,52 +1,108 @@
-const fs = require("fs");
-const path = require("path");
+require("dotenv").config();
 
-const fetchNpmWeeklyDownloads = require("./npmDownloads");
-const fetchGitHubTopicRepoCount = require("./repos");
-const fetchGitHubTopicStarsCount = require("./stars");
-const showGrowth = require("./newRepos");
-const fetchGitHubActiveRepoCount = require("./activeRepos");
-const { json } = require("stream/consumers");
+//! config
+const config = require("./config/config");
 
-const OUTPUT_DIR = path.join(__dirname, "../output");
+//! collectors
+const collectEcosystem = require("./collectors/collectEcosystem");
+const collectRepos = require("./collectors/collectRepos");
 
-async function main() {
-    const ajvDownloads = await fetchNpmWeeklyDownloads("ajv");
-    const typiaDownloads = await fetchNpmWeeklyDownloads("typia");
-    const jsonSchemaTopic = await fetchGitHubTopicRepoCount("json-schema");
-    const totalStarCount = await fetchGitHubTopicStarsCount("json-schema");
-    const growth = await showGrowth(jsonSchemaTopic);
-    const activeRepos = await fetchGitHubActiveRepoCount("json-schema");
+//! processers
+const proccessEcosystem = require("./proccessing/proccessEcosystem");
+const proccessRepos = require("./proccessing/processRepo");
 
-    const result = {
-        date: new Date().toISOString().split("T")[0],
-        npm_downloads: {
-            ajv: ajvDownloads,
-            typia: typiaDownloads
-        },
-        repo_count: jsonSchemaTopic,
-        new_repos: growth,
-        total_stars: totalStarCount,
-        avg_stars: (totalStarCount / jsonSchemaTopic).toFixed(0),
-        active_repos: activeRepos
-    };
+//! storage
+const saveEcosystemSnapshot = require("./storage/saveEcosystemSnapshot");
+const saveReposSnapshot = require("./storage/saveReposSnapshot");
 
-    if (!fs.existsSync(OUTPUT_DIR)) {
-        fs.mkdirSync(OUTPUT_DIR);
-    }
+const { fetchAllNormalizedRepos, fetchActiveRepos } = require("./metrics/github/fetchReposGraphQL");
+const { fetchDownloadsMultiplePackages } = require("./metrics/npm/fetchDownloads");
 
-    let metrics = [];
+async function compareAPIs() {
+    const { performance } = require("perf_hooks");
 
-    if(fs.existsSync(path.join(OUTPUT_DIR, "metrics.json"))){
-        const fileContent = fs.readFileSync(path.join(OUTPUT_DIR, "metrics.json"), "utf-8");
-        if(fileContent !== "")
-            metrics = JSON.parse(fileContent);
-    }
+    // // REST
+    // let start = performance.now();
 
-    metrics.push(result);
-    fs.writeFileSync(path.join(OUTPUT_DIR, "metrics.json"), JSON.stringify(metrics, null, 2), "utf-8");
+    // console.time("REST");
 
-    console.log("Metrics saved to output/metrics.json");
+    // await fetchReposCount();
+    // await fetchActiveRepos();
+
+    // const query = "topic:json-schema+is:public+sort:stars";
+    // const url = `https://api.github.com/search/repositories?q=${query}&per_page=${100}`;
+
+    // const res = await fetchWithRetry(url);
+
+    // if (!res.ok) {
+    //     throw new Error(`GitHub API error: ${res.status}`);
+    // }
+
+    // const data = await res.json();
+
+    // const repos = data.items;
+
+    // const detailedRepos = [];
+
+    // for (const repo of repos) {
+    //     const details = await fetchRepoDetails(repo.full_name);
+    //     detailedRepos.push(details);
+    // }
+
+    // console.log(detailedRepos.length);
+
+    // console.timeEnd("REST");
+
+    // let restTime = performance.now() - start;
+
+    // GraphQL
+    // start = performance.now();
+    console.time("GraphQL");
+
+    const reposCount = (await fetchAllNormalizedRepos()).length;
+
+    console.timeEnd("GraphQL");
+    console.log(reposCount)
+
+    // let gqlTime = performance.now() - start;
+
+    // console.log("REST Time:", restTime);
+    // console.log("GraphQL Time:", gqlTime);
+}
+
+
+async function main(){
+    //* data fetched
+    const {totalCount, repos} = await fetchAllNormalizedRepos();
+    const activeRepos = await fetchActiveRepos();
+
+    //? repos
+
+    //! collect data
+    const collectedRepos = await collectRepos(repos);
+
+    //! process data
+    const proccessedRepos = await proccessRepos(collectedRepos);
+
+    // console.log(proccessedRepos.date);
+
+    //! save data
+    await saveReposSnapshot(proccessedRepos);
+
+    //? ecosystem
+
+    //! collect data
+    const ecosystem = await collectEcosystem(totalCount, activeRepos.length, await fetchDownloadsMultiplePackages(config.trackedPackages));
+
+    // console.log(ecosystem);
+
+    //! process data
+    const proccessedEcosystem = await proccessEcosystem(ecosystem, proccessedRepos.repos);
+
+    //! save data
+    await saveEcosystemSnapshot(proccessedEcosystem);
+
+    console.log("Done!");
 }
 
 main();

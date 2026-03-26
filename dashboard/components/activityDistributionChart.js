@@ -8,11 +8,16 @@ const centerTextPlugin = {
     const data = chart.config.data.datasets[0].data;
 
     // نحسب total
-    const total = data.reduce((a, b) => a + b, 0);
+    const total = data.reduce((a, b) => parseFloat(a) + parseFloat(b), 0);
 
     // نحسب active %
-    const active = data[0]; // أول value = active
-    const percent = Math.round((active / total) * 100);
+    // const active = data[0]; // أول value = active
+
+    //! type of data[0]
+    console.log(data[0], total);
+    const percent = Math.round((parseFloat(data[0]) /total) * 100);
+
+    console.log(percent)
 
     let label = "Active";
     if (percent < 40) label = "Low";
@@ -64,9 +69,11 @@ export function renderActivityDistribution(data) {
 
   const ctx = document.getElementById("activityDistributionChart");
 
-  active = data.cards.activityRate * 100;
-  stale = data.cards.staleRate * 100;
-  inactive = 100 - active - stale;
+  active = (data.cards.activityRate * 100).toFixed(0);
+  stale = (data.cards.staleRate * 100).toFixed(0);
+  inactive = (100 - active - stale).toFixed(0);
+
+  console.log((data.cards.staleRate * 100).toFixed(2));
 
   new Chart(ctx, {
     type: "doughnut",
