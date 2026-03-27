@@ -1,178 +1,41 @@
-# JSON Schema Ecosystem Metrics
+# JSON Schema Ecosystem Observability
 
-## Overview
-
-This project provides a simple **observability proof-of-concept for the JSON Schema ecosystem**.
-
-It collects ecosystem metrics from public APIs such as GitHub and npm and stores them in a structured JSON file over time.
-The goal is to track how the ecosystem evolves week by week.
-
-The metrics are automatically updated using **GitHub Actions** on a weekly schedule.
-
-This project was created as part of a qualification task for the JSON Schema ecosystem observability project.
+An automated observability system for analyzing the health, growth, and evolution of the JSON Schema ecosystem over time.
 
 ---
 
-# What This Project Tracks
+## 🚀 Overview
 
-Currently the project collects the following metrics:
+This project provides a data-driven observability platform for the JSON Schema ecosystem.
 
-### 1. npm Downloads
-
-Weekly downloads for popular JSON Schema related packages from npm.
-
-Examples:
-
-* ajv
-* typia
-
-This metric helps understand **how widely JSON Schema tooling is used in the JavaScript ecosystem**.
+It collects, processes, and analyzes repository and package data to generate meaningful insights about ecosystem activity, health, and trends. The system is designed as a modular and extensible pipeline, allowing continuous addition of new metrics and analytics as the ecosystem evolves.
 
 ---
 
-### 2. GitHub Repository Count
+## 🧠 Why This Project Matters
 
-The number of repositories tagged with the topic:
+Currently, there is limited visibility into the overall state of the JSON Schema ecosystem.
 
-```
-json-schema
-```
+This project helps to:
 
-Data source: GitHub Search API.
+- Identify actively maintained vs stale repositories  
+- Track ecosystem growth and adoption trends  
+- Highlight areas that may need support or attention  
+- Provide a data-driven view of ecosystem health  
 
-This metric indicates **how large the ecosystem is and how many projects are built around JSON Schema**.
-
----
-
-### 3. New GitHub Repository Count
-
-The number of new repositories tagged with the topic:
-
-```
-json-schema
-```
-
-Data source: GitHub Search API.
-
-This metric indicates **the ecosystem growth**.
+By transforming raw data into actionable insights, the system enables better decision-making for maintainers and contributors.
 
 ---
 
-### 4. New GitHub Repository Count
-
-The number of active repositories tagged with the topic:
-
-```
-json-schema
-```
-
-Data source: GitHub Search API.
-
-This metric indicates **the actual number of repos that uses JSON Schema topic excluding the abandoned ones**.
-
----
-
-### 5. GitHub Stars
-
-Total/Average number of stars for JSON Schema repositories.
-
-Data source: GitHub Search API.
-
-Stars are a rough signal of **community interest and project popularity**.
-
----
-
-# Data Format
-
-All collected data is stored in:
-
-```
-output/metrics.json
-```
-
-The file acts as a **time-series dataset**, where a new record is added every week.
-
-Example:
-
-```json
-[
-  {
-    "date": "2026-03-12",
-    "npm_downloads": {
-      "ajv": 220631931,
-      "typia": 211371
-    },
-    "repo_count": 2414,
-    "new_repos": null,
-    "total_stars": 325740,
-    "avg_stars": "135",
-    "active_repos": 28
-  }
-]
-```
-
-Each entry represents the state of the ecosystem at a specific date.
-
----
-
-# Project Structure
-
-```
-src/
-  index.js            main script that collects metrics
-
-output/
-  metrics.json        stored metrics history
-
-.github/workflows/
-  main.yml            GitHub Actions workflow
-```
-
----
-
-# How the Data Is Collected
-
-The script uses public APIs:
-
-### npm API
-
-Used to fetch download counts for npm packages.
-
-Example endpoint:
-
-```
-https://api.npmjs.org/downloads/point/last-week/<package>
-```
-
----
-
-### GitHub API
-
-Used to query ecosystem data.
-
-Examples:
-
-Count repositories with topic:
-
-```
-https://api.github.com/search/repositories?q=topic:json-schema
-```
-
-Fetch repository details:
-
-```
-https://api.github.com/repos/<owner>/<repo>
-```
-
----
-
-# Running the Project Locally
+## Running the Project Locally
 
 ### 1. Clone the repository
 
 ```
-git clone <repo-url>
-cd <repo>
+HTTPS: https://github.com/haya08/JSON-Schema-Observability-Q-T.git
+SSH: https://github.com/haya08/JSON-Schema-Observability-Q-T.git
+
+cd JSON-Schema-Observability-Q-T
 ```
 
 ---
@@ -193,126 +56,130 @@ OR
 npm start
 ```
 
-This will:
+---
 
-1. Fetch ecosystem data from APIs
-2. Append a new entry to `metrics.json`
-3. Save the updated dataset
+## 🏗️ System Architecture
+
+Data Sources → Collection → Processing → Snapshots → Analytics → Dashboard
 
 ---
 
-# Automation with GitHub Actions
+### Flow:
 
-The project uses GitHub Actions to automatically collect metrics.
-
-Workflow file:
-
-```
-.github/workflows/main.yml
-```
-
-The workflow runs:
-
-* every Monday using a cron schedule
-* manually using workflow_dispatch
-
-Example schedule:
-
-```
-0 0 * * 1
-```
-
-This means the script runs **once per week**.
-
-When executed, the workflow:
-
-1. installs dependencies
-2. runs the metrics script
-3. updates `metrics.json`
-4. commits the new data to the repository
+1. Fetch data from GitHub (GraphQL) and npm APIs  
+2. Normalize and process data  
+3. Compute metrics  
+4. Store periodic snapshots  
+5. Compare historical data  
+6. Generate insights  
+7. Render dashboard  
 
 ---
 
-# Visualization
+## ⚙️ Features
 
-The collected metrics can be visualized using tools such as:
-
-* Chart.js
-* spreadsheets
-* dashboards
-
-Example charts include:
-
-* npm download trends
-* ecosystem growth
-* repository popularity
+- Automated data collection using GitHub GraphQL API  
+- Snapshot-based historical tracking  
+- Modular and extensible metrics system  
+- Ecosystem health and activity analysis  
+- Trend and growth detection  
+- Interactive dashboard visualization  
+- Automated workflow using GitHub Actions  
 
 ---
 
-# Challenges Encountered
+## 📊 Metrics & Insights
 
-One challenge was designing a data format that supports **long-term time-series metrics**.
+The system supports multiple categories of metrics, including:
 
-The solution was to store metrics as an array of dated entries, allowing easy historical tracking and visualization.
+- **Activity & Maintenance Signals**  
+  (e.g., active vs inactive repositories)
 
-Another challenge was ensuring the GitHub workflow only commits changes when the dataset is updated.
+- **Popularity & Adoption Indicators**  
+  (e.g., stars, forks, ecosystem growth patterns)
 
----
+- **Ecosystem Health Classification**  
+  (based on combined signals)
 
-# Future Improvements
+- **Trend & Growth Analysis**  
+  (tracking changes between snapshots)
 
-## Adding repository snapshot
-To be clear, all we have now is just aggregate numbers about all the repos tagged with JSON Schema topic.
-
-**Aggregate numbers alone are misleading**
-
-To understand this lets take a look at this example:
-
-```
-{ "date": "2026-03-14", "repo_count": 2414, "total_stars": 325740 }
-{ "date": "2026-03-21", "repo_count": 2420, "total_stars": 326100 }
-```
-
-Stars went up by 360. Looks healthy. But you have no idea if:
-
-  Those 360 stars all came from one repo going viral while everything else stagnated.
-  
-  6 new repos were created but 10 others went completely dead.
-  
-  The top validator (ajv) is actually losing stars while low-quality clones are gaining them.
-
-So we can get this to conclusion : **aggregate numbers hide the story. Per-repo data tells it.**
+The architecture is designed to support adding new metrics and insights without major changes to the system.
 
 ---
 
-## Avoid reaching github rate limit
-We need to work on 2 parts:
+## 🔄 Workflow
 
-#### Part 1 — Only fetch what's new or changed
-Instead of fetching all 2414 repos (repos tagged with JSON Schema topic), we ask GitHub: "give us only repos that were pushed to since our last run."
+1. Fetch ecosystem data from APIs  
+2. Normalize and clean data  
+3. Compute repository-level metrics  
+4. Store snapshots (JSON)  
+5. Compare with previous snapshots  
+6. Generate insights (trends, activity, health)  
+7. Display results in dashboard  
 
-This might return 50 repos instead of 2414 — a 48x reduction in API calls.
+---
 
-#### Part 2 — Checkpoint file to resume after a crash
-Even after Part 1, you might be fetching 200 repos and crash halfway through at repo #97. Without a checkpoint, next run starts from zero again.
+## 🤖 Automation
 
-A checkpoint file tracks exactly where you stopped.
+The system is fully automated using GitHub Actions.
 
-Its structure may look like that:
+- Runs on a scheduled basis (weekly)  
+- Collects, processes, and stores new snapshots  
+- Keeps the dataset continuously updated  
+
+---
+
+## 📁 Project Structure
 
 ```
-{
-    "last_successful_run": "2026-03-07",
-    "last_completed_page": 4,
-    "processed_repos": [
-        "ajv-validator/ajv",
-        "tdegrunt/jsonschema",
-        "..."
-    ]
-}
+src/
+├── collectors/ # Data fetching (GraphQL, npm)
+├── processing/ # Metrics computation
+├── storage/ # Snapshot saving
+├── analytics/ # Trend & insights logic
+
+output/
+├── snapshots/ # Stored historical data
+
 ```
 
 ---
+
+## 🧪 Design Decisions
+
+- **GraphQL over REST**  
+  Reduces number of API requests and improves efficiency  
+
+- **Snapshot-based architecture**  
+  Enables historical tracking and trend analysis  
+
+- **Modular processing pipeline**  
+  Allows adding new metrics without restructuring the system  
+
+- **Automation-first approach**  
+  Ensures continuous data updates without manual effort  
+
+---
+
+## ⚠️ Limitations
+
+- Metrics are currently based on a subset of repositories  
+- Ecosystem-wide insights are approximations  
+- Advanced signals (e.g., dependencies, contributor graphs) are not yet included  
+
+---
+
+## 🚀 Future Work
+
+- Add more advanced ecosystem metrics  
+- Improve accuracy of ecosystem-wide insights  
+- Introduce dependency and relationship analysis  
+- Enhance dashboard interactivity and filtering  
+- Expand data sources beyond GitHub and npm  
+
+---
+
 
 # AI Assistance
 
@@ -325,7 +192,3 @@ AI tools were used for:
 All code and design decisions were reviewed and understood before inclusion.
 
 ---
-
-# License
-
-MIT
