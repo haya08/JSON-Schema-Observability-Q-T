@@ -1,0 +1,30 @@
+{
+  "date": "2026-03-30",
+  "totals": {
+    "reposCount": 2511,
+    "npmDownloads": {
+      "total": 308035075,
+      "packages": [
+        {
+          "package": "ajv",
+          "downloads": 272281769
+        },
+        {
+          "package": "json-schema",
+          "downloads": 35753306
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "activityRate": "0.49",
+    "staleRate": "0.28",
+    "growthRate": 0
+  },
+  "health": "moderate",
+  "activityDistribution": {
+    "active": 49,
+    "inactive": 23,
+    "stale": 28
+  }
+}

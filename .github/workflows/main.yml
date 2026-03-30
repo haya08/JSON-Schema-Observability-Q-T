@@ -28,7 +28,7 @@ jobs:
       - name: Run metrics script
         env: 
           MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-        run: node src2/index.js
+        run: node src/index.js
 
       - name: Commit updated metrics
         run: |
