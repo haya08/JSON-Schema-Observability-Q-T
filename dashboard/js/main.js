@@ -30,7 +30,7 @@ async function init() {
     renderTrendingRepos(reposData);
 
     document.getElementById("lastUpdated").textContent =
-    "Last updated: " + EcosystemData.collectedAt;
+    "Last updated: " + (EcosystemData.collectedAt).split("T")[0];
 }
 
 init();

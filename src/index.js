@@ -72,6 +72,8 @@ async function compareAPIs() {
 
 
 async function main(){
+    console.time("Total execution time");
+
     //* data fetched
     const {totalCount, repos} = await fetchAllNormalizedRepos();
     const activeRepos = await fetchActiveRepos();
@@ -101,6 +103,8 @@ async function main(){
 
     //! save data
     await saveEcosystemSnapshot(proccessedEcosystem);
+
+    console.timeEnd("Total execution time");
 
     console.log("Done!");
 }

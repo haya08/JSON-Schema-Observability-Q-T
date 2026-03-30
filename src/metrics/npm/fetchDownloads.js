@@ -22,11 +22,15 @@ async function fetchDownloadsSinglePackage(pkg, period = "last-week") {
 
 async function fetchDownloadsMultiplePackages(pkgs, period = "last-week") {
     const result = [];
-    for(const pkg of pkgs) {
-        const data = await fetchDownloadsSinglePackage(pkg, period);
-        result.push(data);
-    }
-    return Promise.all(result);
+
+    return Promise.all(pkgs.map(pkg => fetchDownloadsSinglePackage(pkg, period)));
+
+
+    // for(const pkg of pkgs) {
+    //     const data = await fetchDownloadsSinglePackage(pkg, period);
+    //     result.push(data);
+    // }
+    // return Promise.all(result);
 }
 
 module.exports = {
