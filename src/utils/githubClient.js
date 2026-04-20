@@ -10,7 +10,7 @@
 //     if (remaining < 5) {
 //         const waitMs = (reset * 1000) - Date.now() + 1000; // +1s buffer
 //         console.log(`Rate limit low, waiting ${Math.ceil(waitMs/1000)}s...`);
-//         await new Promise(r => setTimeout(r, waitMs));
+//         await new P romise(r => setTimeout(r, waitMs));
 //     }
 
 //     if (res.status === 429 || res.status === 403) {

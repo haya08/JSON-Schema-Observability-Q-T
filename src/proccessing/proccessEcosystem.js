@@ -36,8 +36,9 @@ function calStaleRate(staleRepos, totalRepos){
 function calGrowthRate(prevSnapshot, totalRepos){
     if(prevSnapshot){
         const prevTotalRepos = prevSnapshot.totals.reposCount;
+        
         if(prevTotalRepos){
-            return ((totalRepos - prevTotalRepos) / prevTotalRepos).toFixed(2);
+            return ((totalRepos - prevTotalRepos) / prevTotalRepos).toFixed(3);
         }
     }
     return 0;
@@ -68,7 +69,9 @@ function getPrevSnapshot(){
 }
 
 function ecosystemSnapshot (data, proccededRepos) {
-    const date = new Date(data.collectedAt).toISOString().split('T')[0];
+    const date = new Date().toLocaleDateString('en-CA', {
+        timeZone: 'Africa/Cairo'
+    });
     const totalRepos = data.totalRepos;
     // const activeRepos = data.activeRepos;
     const activeRepos = proccededRepos.filter(r => r.activityStatus === "active").length;
