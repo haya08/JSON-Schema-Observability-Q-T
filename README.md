@@ -33,7 +33,7 @@ By transforming raw data into actionable insights, the system enables better dec
 
 ```
 HTTPS: https://github.com/haya08/JSON-Schema-Observability-Q-T.git
-SSH: https://github.com/haya08/JSON-Schema-Observability-Q-T.git
+SSH: git@github.com:haya08/JSON-Schema-Observability-Q-T.git
 
 cd JSON-Schema-Observability-Q-T
 ```
